@@ -15,3 +15,6 @@ Route::get('admin/login','admin/LoginController/index');
 Route::get('admin/index','admin/IndexController/index');
 Route::get('admin/welcome','admin/IndexController/welcome');
 Route::resource('admin/article','admin/ArticleController');
+Route::resource('admin/cat','admin/CategoryController');
+Route::resource('admin/pic','admin/PictureController');
+Route::resource('admin/sys','admin/SystemController');
