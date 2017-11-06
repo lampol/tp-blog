@@ -73,10 +73,10 @@
 <aside class="Hui-aside">
 	<div class="menu_dropdown bk_2">
 		<dl id="menu-article">
-			<dt><i class="Hui-iconfont">&#xe616;</i> 资讯管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dt><i class="Hui-iconfont">&#xe616;</i> 文章管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a data-href="article-list.html" data-title="资讯管理" href="javascript:void(0)">资讯管理</a></li>
+					<li><a data-href="{{:url('/admin/article') }}" data-title="资讯管理" href="javascript:void(0)">文章管理</a></li>
 			</ul>
 		</dd>
 	</dl>
@@ -165,7 +165,7 @@
 		<div class="Hui-tabNav-wp">
 			<ul id="min_title_list" class="acrossTab cl">
 				<li class="active">
-				<span title="我的桌面" data-href="{:url('/admin/welcome')}">我的桌面</span>
+				<span title="我的桌面" data-href="{{:url('/admin/welcome')}}">我的桌面</span>
 					<em></em></li>
 		</ul>
 	</div>
@@ -174,7 +174,7 @@
 	<div id="iframe_box" class="Hui-article">
 		<div class="show_iframe">
 			<div style="display:none" class="loading"></div>
-			<iframe scrolling="yes" frameborder="0" src="{:url('/admin/welcome')}"></iframe>
+			<iframe scrolling="yes" frameborder="0" src="{{:url('/admin/welcome')}}"></iframe>
 	</div>
 </div>
 </section>
