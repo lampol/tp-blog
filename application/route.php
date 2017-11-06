@@ -12,3 +12,5 @@
 use think\Route;
 
 Route::get('admin/login','admin/LoginController/index');
+Route::get('admin/index','admin/IndexController/index');
+Route::get('admin/welcome','admin/IndexController/welcome');
