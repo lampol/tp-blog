@@ -19,4 +19,9 @@ class Category extends Model
 		}
 		return $res;
 	}
+
+	//获取所有分类
+	public function getAllCat(){
+		return $this->select()->toArray();
+	}
 }

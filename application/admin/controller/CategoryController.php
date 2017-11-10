@@ -15,6 +15,9 @@ class CategoryController extends BaseController
      */
     public function index()
     {
+	$category = new Category;
+	$cats  = $category->getAllCat();
+	$this->assign('cats',$cats);
         return $this->fetch();
     }
 
