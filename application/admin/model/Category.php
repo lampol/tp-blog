@@ -24,4 +24,18 @@ class Category extends Model
 	public function getAllCat(){
 		return $this->select()->toArray();
 	}
+	//获取一条分类信息
+	public function getOneCat($id){
+		return $this->find($id)->toArray();
+	}
+
+	//更新分类
+	public function updateCat($id,$data){
+		if($this->where('id',$id)->update($data)){
+			$res = ['status'=>'success','info'=>'分类更新成功'];  
+		}else{
+			$res = ['status'=>'fail','info'=>'分类更新失败'];
+		}		
+		return $res;
+	}
 }

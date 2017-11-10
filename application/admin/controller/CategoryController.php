@@ -78,7 +78,18 @@ class CategoryController extends BaseController
      */
     public function edit($id)
     {
-        //
+	$category = new Category;
+
+	$cat = $category->getOneCat($id);	
+
+	$cats  = $category->getAllCat();
+	$this->assign('cats',$cats);    
+
+	$this->assign('cat',$cat);
+
+	return $this->fetch('index');
+
+
     }
 
     /**
@@ -90,7 +101,20 @@ class CategoryController extends BaseController
      */
     public function update(Request $request, $id)
     {
-        //
+	    $validate = validate('CatValidate');
+	    if(!$validate->check($request->only(['cat_name','cat_desc','__token__']))){
+	    	return $this->error($validate->getError(),'/admin/cat');
+	    }
+	    $category = new Category;
+	    $data = $request->only(['cat_name','cat_desc']);
+	    $res = $category->updateCat($id,$data);
+
+	    if($res['status']=='fail'){
+	    	return $this->error($res['info'],'/admin/cat');
+	    }
+
+	    return $this->success($res['info'],'/admin/cat');
+
     }
 
     /**
