@@ -4,6 +4,7 @@ namespace app\admin\controller;
 
 use think\Request;
 use app\admin\controller\BaseController;
+use app\admin\model\Category;
 
 class CategoryController extends BaseController
 {
@@ -35,7 +36,24 @@ class CategoryController extends BaseController
      */
     public function save(Request $request)
     {
-        //
+	$validate = validate('CatValidate');
+
+	if(!$validate->check($request->param())){
+	
+		return $this->error($validate->getError(),'/admin/cat');
+	}
+
+	$cat_name =$request->param('cat_name','trim');
+	$cat_desc =$request->param('cat_desc','trim');
+
+	$category = new Category;
+	$res = $category->addCat($cat_name,$cat_desc);
+
+	if($res['status']=='fail'){
+		return $this->error($res['info'],'/admin/cat');
+	}
+	return $this->success($res['info'],'/admin/cat');
+
     }
 
     /**

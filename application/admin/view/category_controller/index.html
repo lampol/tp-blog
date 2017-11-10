@@ -1,19 +1,12 @@
 ﻿<body>
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 产品管理 <span class="c-gray en">&gt;</span> 品牌管理 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 分类管理 <span class="c-gray en">&gt;</span> 分类管理 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
 	<div class="text-c">
-		<form class="Huiform" method="post" action="" target="_self">
-			<input type="text" placeholder="分类名称" value="" class="input-text" style="width:120px">
-			<span class="btn-upload form-group">
-			<input class="input-text upload-url" type="text" name="uploadfile-2" id="uploadfile-2" readonly style="width:200px">
-			<a href="javascript:void();" class="btn btn-primary upload-btn"><i class="Hui-iconfont">&#xe642;</i> 上传logo</a>
-			<input type="file" multiple name="file-2" class="input-file">
-			</span> <span class="select-box" style="width:150px">
-			<select class="select" name="brandclass" size="1">
-				<option value="1" selected>国内品牌</option>
-				<option value="0">国外品牌</option>
-			</select>
-			</span><button type="button" class="btn btn-success" id="" name="" onClick="picture_colume_add(this);"><i class="Hui-iconfont">&#xe600;</i> 添加</button>
+		<form class="Huiform" method="post" action="{{:url('/admin/cat')}}">
+			{{:token()}}
+			<input type="text" placeholder="分类名称" name="cat_name" value="" class="input-text" style="width:120px">
+			<input type="text" placeholder="分类描述" name="cat_desc" value="" class="input-text" style="width:240px">
+			<input type="submit" class ="btn btn-success" value="添加分类" >
 		</form>
 	</div>
 	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a></span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
