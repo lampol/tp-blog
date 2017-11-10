@@ -17,6 +17,8 @@ class CategoryController extends BaseController
     {
 	$category = new Category;
 	$cats  = $category->getAllCat();
+	$catCount = $category->getAllCatCount();
+	$this->assign('catCount',$catCount);
 	$this->assign('cats',$cats);
         return $this->fetch();
     }
@@ -83,6 +85,8 @@ class CategoryController extends BaseController
 	$cat = $category->getOneCat($id);	
 
 	$cats  = $category->getAllCat();
+	$catCount = $category->getAllCatCount();
+	$this->assign('catCount',$catCount);    
 	$this->assign('cats',$cats);    
 
 	$this->assign('cat',$cat);
@@ -125,6 +129,14 @@ class CategoryController extends BaseController
      */
     public function delete($id)
     {
-        //
+	    $category = new Category;
+	    $res = $category->deleteCat($id);
+	    if($res['status']=='fail'){
+			    return $this->error($res['info'],'/admin/cat'); 
+	     }                                                   
+
+	    return $this->success($res['info'],'/admin/cat');   
+
+
     }
 }

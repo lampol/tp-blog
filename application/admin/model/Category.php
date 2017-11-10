@@ -38,4 +38,21 @@ class Category extends Model
 		}		
 		return $res;
 	}
+	//删除分类
+	//
+	public function deleteCat($id){
+		if($this->where('id',$id)->delete()){
+		
+			$res = ['status'=>'success','info'=>'分类删除成功'];
+		}else{
+			 $res = ['status'=>'fail','info'=>'分类删除失败']; 
+		}
+		return $res;
+	}
+
+	//获取分类总条数
+	//
+	public function getAllCatCount(){
+		return $this->count();
+	}
 }
