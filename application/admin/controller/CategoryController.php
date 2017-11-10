@@ -2,10 +2,10 @@
 
 namespace app\admin\controller;
 
-use think\Controller;
 use think\Request;
+use app\admin\controller\BaseController;
 
-class CategoryController extends Controller
+class CategoryController extends BaseController
 {
     /**
      * 显示资源列表

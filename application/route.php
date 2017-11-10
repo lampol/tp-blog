@@ -11,7 +11,8 @@
 //
 use think\Route;
 
-Route::get('admin/login','admin/LoginController/index');
+Route::any('admin/login','admin/LoginController/index',['method'=>'get|post']);
+Route::get('admin/logout','admin/LoginController/logout');
 Route::get('admin/index','admin/IndexController/index');
 Route::get('captcha','admin/LoginController/captcha');
 Route::get('admin/welcome','admin/IndexController/welcome');
