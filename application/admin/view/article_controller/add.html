@@ -12,7 +12,13 @@
     <div class="row cl"> 
      <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>文章分类：</label> 
      <div class="formControls col-xs-2 col-sm-2"> 
-      <span class="select-box"> <select name="articlecolumn" class="select"> <option value="0">全部栏目</option> <option value="1">新闻资讯</option> <option value="11">├行业动态</option> <option value="12">├行业资讯</option> <option value="13">├行业新闻</option> </select> </span> 
+      <span class="select-box"> 
+	      <select name="cat_id" class="select"> 
+		      {volist name="cats" id="vo"}
+		      <option value="{{$vo.id}}">{{$vo.cat_name}}</option> 
+		      {/volist}
+      		</select> 
+	</span> 
      </div> 
      <label class="form-label col-xs-4 col-sm-2">文章标签：</label> 
      <div class="formControls col-xs-2 col-sm-2"> 

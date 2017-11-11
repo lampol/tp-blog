@@ -4,6 +4,7 @@ namespace app\admin\controller;
 
 use app\admin\controller\BaseController;
 use think\Request;
+use app\admin\model\Category;
 
 class ArticleController extends BaseController
 {
@@ -24,7 +25,10 @@ class ArticleController extends BaseController
      */
     public function create()
     {
-        return $this->fetch('add');
+	   $category = new Category;        
+	   $cats  = $category->getAllCat(); 
+	   $this->assign('cats',$cats);
+           return $this->fetch('add');
     }
 
     /**
