@@ -38,7 +38,10 @@
        <div id="filePicker">
         选择图片
        </div> 
-       <button id="btn-star" class="btn btn-default btn-uploadstar radius ml-10">开始上传</button> 
+		<div class="formControls col-xs-offset-4" id="img" style="width:250px;height:150px;border:1px dashed #333"> 
+			请上传图片
+		</div>
+
       </div> 
      </div> 
     </div> 
@@ -89,6 +92,18 @@ var uploader = WebUploader.create({
         mimeTypes: 'image/*'
     }
 });
+
+// 文件上传成功，给item添加成功class, 用样式标记上传成功。
+uploader.on( 'uploadSuccess', function( file ,data) {
+	if(data.status=='fail'){
+		$('#img').html('<span style="color:red">'+data.info+'</span>');	
+		
+	}else{
+	$('#img').html('<img src=/'+data.info+'><input type="hidden" name="img_url" value="'+data.info+'">');
+	
+	}
+ });
+
 
 var ue = UE.getEditor('editor',{
 	toolbars:[['undo', 'redo','bold', 'italic', 'underline', 'forecolor', 'backcolor','customstyle', 'paragraph', 'fontfamily', 'fontsize','justifyleft', 'justifycenter', 'justifyright', 'justifyjustify','simpleupload','insertcode','emotion']]

@@ -20,9 +20,11 @@ class UploadController extends Controller
 			$fileName = $res->getPathName();
 			$image = Image::open($fileName);
 			$image->thumb(250,150)->save($fileName);
+			$data = ['status'=>'success','info'=>$fileName];
 		}else{
-			dump($file->getError());
+			$data = ['status'=>'fail','info'=>$file->getError()];
 		}
+		return json($data);
 
 
 	}
