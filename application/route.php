@@ -21,3 +21,4 @@ Route::resource('admin/cat','admin/CategoryController');
 Route::get('admin/cat/del/:id','admin/CategoryController/delete');
 Route::resource('admin/pic','admin/PictureController');
 Route::resource('admin/sys','admin/SystemController');
+Route::post('admin/upArtImg','admin/UploadController/uploadArt');
