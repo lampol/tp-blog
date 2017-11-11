@@ -5,6 +5,7 @@ namespace app\admin\controller;
 use app\admin\controller\BaseController;
 use think\Request;
 use app\admin\model\Category;
+use app\admin\model\Article;
 
 class ArticleController extends BaseController
 {
@@ -39,7 +40,14 @@ class ArticleController extends BaseController
      */
     public function save(Request $request)
     {
-        //
+	    $data = $request->except(['file']);
+	    $article = new Article;
+	    $res = $article->addArt($data);
+	    if($res['status']=='fail'){
+	    	return $this->error($res['info'],'/admin/article');
+	    }
+	    return $this->success($res['info'],'/admin/article');
+
     }
 
     /**
