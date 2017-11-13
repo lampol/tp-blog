@@ -28,4 +28,23 @@ class Article extends Model
 		return $data;
 
 	}
+	//获取一条文章内容
+	public function getOneArticle($id){
+	
+		$data = $this->field(['views','updated_at','created_at'],true)->find($id)->toArray();		
+		return $data;
+	}
+	//更新文章
+	public function updateArticle($data,$id){
+	
+		if($this->where('id',$id)->update($data)){
+			$res = ['status'=>'success','info'=>'更新文章内容成功'];
+		}else{
+			$res = ['status'=>'fail','info'=>'更新文章内容失败'];
+		}
+		return $res;
+	}	
+
+
+
 }
