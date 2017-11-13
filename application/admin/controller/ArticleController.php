@@ -17,8 +17,10 @@ class ArticleController extends BaseController
     public function index()
     {
 	    $article = new Article;
+	    $totalCount = $article->totalCount();
 	    $articles = $article->getAllArticle(3);
 	    $this->assign('articles',$articles);
+	    $this->assign('totalCount',$totalCount);
         return $this->fetch();
     }
 
@@ -31,6 +33,9 @@ class ArticleController extends BaseController
     {
 	   $category = new Category;        
 	   $cats  = $category->getAllCat(); 
+	   if(!$cats){
+	   	return $this->redirect('/admin/cat');
+	   }
 	   $this->assign('cats',$cats);
            return $this->fetch('add');
     }

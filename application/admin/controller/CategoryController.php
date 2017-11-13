@@ -17,9 +17,14 @@ class CategoryController extends BaseController
     {
 	$category = new Category;
 	$cats  = $category->getAllCat();
+	if($cats){
+		$this->assign('cats',$cats);	
+	}else{
+		$this->assign('nullInfo','你还没有添加分类，请先添加。。。');	
+		
+	}
 	$catCount = $category->getAllCatCount();
 	$this->assign('catCount',$catCount);
-	$this->assign('cats',$cats);
         return $this->fetch();
     }
 

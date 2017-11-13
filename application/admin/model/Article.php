@@ -56,6 +56,11 @@ class Article extends Model
 		return $res;
 	
 	}
+	//获取总条数
+	public function totalCount(){
+		return $this->count();
+	
+	}
 
 
 

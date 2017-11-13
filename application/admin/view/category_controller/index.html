@@ -1,5 +1,9 @@
 ﻿<body>
+
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 分类管理 <span class="c-gray en">&gt;</span> 分类管理 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+
+
+
 <div class="page-container">
 	<div class="text-c">
 		{if isset($cat)}
@@ -14,7 +18,14 @@
 	<input type="submit" class ="btn btn-success" value="{{$cat?'更新分类':'添加分类'}}" >
 		</form>
 	</div>
-	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a></span> <span class="r">共有数据：<strong>{{$catCount}}</strong> 条</span> </div>
+
+
+	{if(isset($nullInfo))}
+	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l">
+	<a href="javascript:;"class=" col-offset-8 btn btn-danger radius"> {{$nullInfo}}</a></span> <span class="r">共有数据：<strong>{{$catCount}}</strong> 条</span> </div>
+
+	{else/}
+
 	<div class="mt-20">
 		<table class="table table-border table-bordered table-bg table-sort">
 			<thead>
@@ -41,6 +52,7 @@
 			</tbody>
 		</table>
 	</div>
+{/if}
 </div>
 </body>
 </html>
