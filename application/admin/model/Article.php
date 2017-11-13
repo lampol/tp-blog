@@ -45,6 +45,18 @@ class Article extends Model
 		return $res;
 	}	
 
+	public function deleteArticle($id){
+		if($this->where('id',$id)->delete()){
+		
+			$res = ['status'=>'success','info'=>'删除文章内容成功'];	
+		}else{
+			$res = ['status'=>'fail','info'=>'删除文章内容失败'];
+		
+		}
+		return $res;
+	
+	}
+
 
 
 }

@@ -107,6 +107,8 @@ class ArticleController extends BaseController
      */
     public function delete($id)
     {
-        //
+	    $article = new Article;
+	    $res = $article->deleteArticle($id);
+	    return json($res);
     }
 }

@@ -3,6 +3,7 @@
 namespace app\admin\model;
 
 use think\Model;
+use think\Db;
 
 class Category extends Model
 {
@@ -41,6 +42,14 @@ class Category extends Model
 	//删除分类
 	//
 	public function deleteCat($id){
+		$data = Db::name('article')->where('cat_id',$id)->find();
+
+		if($data){
+			$res = ['status'=>'fail','info'=>'分类下面还有文章不能删除'];
+			return $res;
+		}
+
+
 		if($this->where('id',$id)->delete()){
 		
 			$res = ['status'=>'success','info'=>'分类删除成功'];

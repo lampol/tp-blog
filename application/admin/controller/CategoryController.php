@@ -131,11 +131,7 @@ class CategoryController extends BaseController
     {
 	    $category = new Category;
 	    $res = $category->deleteCat($id);
-	    if($res['status']=='fail'){
-			    return $this->error($res['info'],'/admin/cat'); 
-	     }                                                   
-
-	    return $this->success($res['info'],'/admin/cat');   
+	    return json($res);
 
 
     }
