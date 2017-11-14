@@ -8,22 +8,20 @@
       <article id="post-93" class="post-93 post type-post status-publish format-standard hentry category-web-technology tag-ssl tag-startssl tag-43"> 
        <header class="entry-header"> 
         <div class="single-meta"> 
-         <span><i class="iconfont icon-calendartext"></i>&nbsp;2016-10-28</span> 
-         <span><i class="iconfont icon-chartbar"></i>&nbsp;529</span> 
+		<span><i class="iconfont icon-calendartext"></i>&nbsp;{{$article.created_at|date='Y-m-d H:i:s',###}}</span> 
+		<span><i class="iconfont icon-chartbar"></i>&nbsp;{{$article.views}}</span> 
          <span><a href="www.lampol-blog.com/93.html#comments"><i class="iconfont icon-messageprocessing"></i> 2</a></span> 
         </div> 
         <div class="clear"></div> 
-        <h1 class="entry-title">申请StartSSL免费的DV SSL证书</h1> 
+	<h1 class="entry-title">{{$article.title}}</h1> 
         <div class="single-tag">
          <i class="iconfont icon-tagmultiple"></i>&nbsp;标签：
-         <a href="www.lampol-blog.com/tag/ssl" rel="tag">SSL</a>&nbsp;&nbsp;
-         <a href="www.lampol-blog.com/tag/startssl" rel="tag">StartSSL</a>&nbsp;&nbsp;
-         <a href="www.lampol-blog.com/tag/%e8%af%81%e4%b9%a6" rel="tag">证书</a>
+	 <a href="www.lampol-blog.com/tag/ssl" rel="tag">{{$article.tag}}</a>&nbsp;&nbsp;
         </div> 
         <div class="clear"></div> 
        </header> 
        <div class="single-content">
-         我这里上就是文章的内容乐乐 
+	       {{$article.contents}}
        </div> 
        <!-- 文章点赞分享 --> 
        <div class="clear"></div> 

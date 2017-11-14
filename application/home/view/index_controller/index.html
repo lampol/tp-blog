@@ -53,14 +53,14 @@
       {volist name="articles" id="vo"}
     <article id="post-167" class="post-167 post type-post status-publish format-standard hentry category-au3 tag-ie11 tag-wmic tag-101"> 
      <div class="art-desc"> 
-	     <h3 class="art-t"> <a href="www.lampol-blog.com/167.html" rel="bookmark" title="{{$vo.title}}">{{$vo.title}}</a> </h3> 
+	     <h3 class="art-t"> <a href="{{:url('/detail',['aid'=>authcode($vo.id,'ENCODE')])}}" rel="bookmark" title="{{$vo.title}}">{{$vo.title}}</a> </h3> 
       <div class="more"> 
        <a href="www.lampol-blog.com/167.html" rel="bookmark"><i class="iconfont icon-import"></i></a> 
       </div> 
       <div class="clear"></div> 
       <div style="min-height:150px;margin:20px"> 
        <div class="art-img"> 
-	       <a href="www.lampol-blog.com/167.html"><img src="/{{$vo.img_url}}" alt="{{$vo.title}}" /></a> 
+	       <a href="{{:url('/detail',['aid'=>authcode($vo.id,'ENCODE')])}}"><img src="/{{$vo.img_url}}" alt="{{$vo.title}}" /></a> 
        </div> 
        <span class="art-main">{{$vo.summary}}</span> 
       </div> 

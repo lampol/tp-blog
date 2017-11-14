@@ -10,4 +10,8 @@ class Article extends Model
 		return $data;
 	
 	}
+	public function getOneArticle($id){
+		$art = $this->find($id);
+		return $art;
+	}
 }

@@ -8,7 +8,6 @@ class IndexController extends Controller
 {
 
 	public function index(){
-
 		$article = new Article;
 		$articles = $article->getAllArticle();
 		$this->assign('articles',$articles);
