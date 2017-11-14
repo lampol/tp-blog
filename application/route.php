@@ -25,3 +25,5 @@ Route::post('admin/upArtImg','admin/UploadController/uploadArt');
 
 //前台路由
 Route::get('/','home/IndexController/index');
+Route::get('list','home/ArticleController/listArticle');
+Route::get('detail','home/ArticleController/detailArticle');
