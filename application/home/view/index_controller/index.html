@@ -1,4 +1,4 @@
-﻿  <div class="breadcrumb"> 
+﻿<div class="breadcrumb"> 
    <div class="bull"> 
     <i class="iconfont icon-bullhorn" aria-hidden="true"></i> 
    </div> 
@@ -50,83 +50,43 @@
 
 
       <!-- 文章内容开始 --> 
+      {volist name="articles" id="vo"}
     <article id="post-167" class="post-167 post type-post status-publish format-standard hentry category-au3 tag-ie11 tag-wmic tag-101"> 
      <div class="art-desc"> 
-      <h3 class="art-t"> <a href="www.lampol-blog.com/167.html" rel="bookmark" title="运用autoit写的系统补丁检测">运用autoit写的系统补丁检测</a> </h3> 
+	     <h3 class="art-t"> <a href="www.lampol-blog.com/167.html" rel="bookmark" title="{{$vo.title}}">{{$vo.title}}</a> </h3> 
       <div class="more"> 
        <a href="www.lampol-blog.com/167.html" rel="bookmark"><i class="iconfont icon-import"></i></a> 
       </div> 
       <div class="clear"></div> 
       <div style="min-height:150px;margin:20px"> 
        <div class="art-img"> 
-        <a href="www.lampol-blog.com/167.html"><img src="__HOME__/images/demo.jpg" alt="运用autoit写的系统补丁检测" /></a> 
+	       <a href="www.lampol-blog.com/167.html"><img src="/{{$vo.img_url}}" alt="{{$vo.title}}" /></a> 
        </div> 
-       <span class="art-main">下面以安装IE11的先决条件的6个必要补丁作为案例，来检测系统是否安装过这个6个补丁。 AutoIt Global $KB2533623 , $KB2670838 , $KB2729094 , $KB2731771 , $KB2786081 , $KB2834...</span> 
+       <span class="art-main">{{$vo.summary}}</span> 
       </div> 
       <div class="clear"></div> 
      </div> 
      <div class="art_ft"> 
       <div class="art-pub"> 
        <div class="views"> 
-        <i class="iconfont icon-chartbar"></i> 712 
+	       <i class="iconfont icon-chartbar"></i> {{$vo.views}} 
        </div> 
        <div class="cmnt"> 
         <a href="www.lampol-blog.com/167.html#comments"><i class="iconfont icon-messageprocessing"></i> 5</a> 
        </div> 
       </div> 
       <div class="art-info"> 
-       <span class="archive"><i class="iconfont icon-archive" aria-hidden="true"></i> <a href="www.lampol-blog.com/category/au3">AU3编程</a></span> 
-       <span class="data"><i class="iconfont icon-calendartext"></i> 2017-05-12</span> 
-       <span class="tag"><i class="iconfont icon-tagmultiple"></i> <a href="www.lampol-blog.com/tag/ie11" rel="tag">IE11</a>、<a href="www.lampol-blog.com/tag/wmic" rel="tag">wmic</a>、<a href="www.lampol-blog.com/tag/%e7%b3%bb%e7%bb%9f%e8%a1%a5%e4%b8%81%e6%a3%80%e6%b5%8b" rel="tag">系统补丁检测</a></span> 
+	      <span class="archive"><i class="iconfont icon-archive" aria-hidden="true"></i> {{$vo.author}}</span> 
+	      <span class="data"><i class="iconfont icon-calendartext"></i> {{$vo.created_at|date='Y-m-d H:i:s',###}}</span> 
+	      <span class="tag"><i class="iconfont icon-tagmultiple"></i> <a href="www.lampol-blog.com/tag/ie11" rel="tag">{{$vo.tag}}</a></span> 
       </div> 
      </div> 
      <div class="clear"></div> 
     </article> 
-    <article id="post-165" class="post-165 post type-post status-publish format-standard hentry category-computer-technology tag-hotfixid tag-systeminfo tag-wmic tag-98"> 
-     <div class="art-desc"> 
-      <h3 class="art-t"> <a href="www.lampol-blog.com/165.html" rel="bookmark" title="检索Windows系统已安装补丁的方法">检索Windows系统已安装补丁的方法</a> </h3> 
-      <div class="more"> 
-       <a href="www.lampol-blog.com/165.html" rel="bookmark"><i class="iconfont icon-import"></i></a> 
-      </div> 
-      <div class="clear"></div> 
-      <div style="min-height:150px;margin:20px"> 
-       <div class="art-img"> 
-        <a href="www.lampol-blog.com/165.html"><img src="__HOME__/images/demo.jpg" alt="检索Windows系统已安装补丁的方法" /></a> 
-       </div> 
-       <span class="art-main">某些情况下，我们需要检索系统安装了那些补丁，以为后面安装软件做准备，比较简单直观的方法就是在控制面板&gt;程序与功能&gt;查看已安装的更新，可以看到，但是如果我们需要这些补丁的列表该怎么做呢？ Systeminfo方法...</span> 
-      </div> 
-      <div class="clear"></div> 
-     </div> 
-     <div class="art_ft"> 
-      <div class="art-pub"> 
-       <div class="views"> 
-        <i class="iconfont icon-chartbar"></i> 856 
-       </div> 
-       <div class="cmnt"> 
-        <a href="www.lampol-blog.com/165.html#respond"><i class="iconfont icon-messageprocessing"></i> 评论</a> 
-       </div> 
-      </div> 
-      <div class="art-info"> 
-       <span class="archive"><i class="iconfont icon-archive" aria-hidden="true"></i> <a href="www.lampol-blog.com/category/share/computer-technology">电脑技术</a></span> 
-       <span class="data"><i class="iconfont icon-calendartext"></i> 2017-05-12</span> 
-       <span class="tag"><i class="iconfont icon-tagmultiple"></i> <a href="www.lampol-blog.com/tag/hotfixid" rel="tag">hotfixid</a>、<a href="www.lampol-blog.com/tag/systeminfo" rel="tag">systeminfo</a>、<a href="www.lampol-blog.com/tag/wmic" rel="tag">wmic</a>、<a href="www.lampol-blog.com/tag/%e7%b3%bb%e7%bb%9f%e8%a1%a5%e4%b8%81" rel="tag">系统补丁</a></span> 
-      </div> 
-     </div> 
-     <div class="clear"></div> 
-    </article> 
-    <!-- 文章内容结束 --> 
-  
+    {/volist}
  <!-- 分页开始 --> 
-    <nav class="navigation pagination" role="navigation"> 
-     <h2 class="screen-reader-text">文章导航</h2> 
-     <div class="nav-links"> 
-      <span class="page-numbers current"><span class="screen-reader-text">第 </span>1<span class="screen-reader-text"> 页</span></span> 
-      <a class="page-numbers" href="www.lampol-blog.com/page/2"><span class="screen-reader-text">第 </span>2<span class="screen-reader-text"> 页</span></a> 
-      <a class="page-numbers" href="www.lampol-blog.com/page/3"><span class="screen-reader-text">第 </span>3<span class="screen-reader-text"> 页</span></a> 
-      <span class="page-numbers dots">…</span> 
-      <a class="page-numbers" href="www.lampol-blog.com/page/5"><span class="screen-reader-text">第 </span>5<span class="screen-reader-text"> 页</span></a> 
-      <a class="next page-numbers" href="www.lampol-blog.com/page/2"><i class="iconfont icon-chevronright"></i></a> 
-     </div> 
+    <nav class="navigation pagination" style="width:200px" role="navigation"> 
+	    {{$articles->render()}}
     </nav> 
  <!-- 分页结束--> 
    </div> 
