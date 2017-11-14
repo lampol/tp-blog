@@ -14,12 +14,12 @@ return [
 //    '__file__' => ['common.php', 'config.php', 'database.php'],
 
     // 定义demo模块的自动生成 （按照实际定义的文件名生成）
-    'admin'     => [
+    'home'     => [
        // '__file__'   => ['common.php'],
         '__dir__'    => ['controller', 'model', 'view'],
-        'controller' => ['IndexController','LoginController'],
-        'model'      => ['Login','Index'],
-        'view'       => ['index_controller/index','login_controller/index'],
+        'controller' => ['IndexController','ArticleController'],
+        'model'      => ['Index','Article'],
+        'view'       => ['index_controller/index','article_controller/index'],
     ],
     // 其他更多的模块定义
 ];
