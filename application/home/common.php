@@ -1,7 +1,7 @@
 <?php
 
 
-function authcode($string, $operation = 'DECODE',$expiry = 0) {  
+function authcode($string, $operation,$expiry = 0) {  
     $ckey_length = 4;  
     //$key = md5($key ? $key : $GLOBALS['discuz_auth_key']);   
     $key =config('blog.ART_SECRET');   
@@ -45,3 +45,21 @@ substr($result, 10, 16) == substr(md5(substr($result, 26).$keyb), 0, 16)) {
         return $keyc.str_replace('=', '', base64_encode($result));  
     }  
 } 
+
+function encrypt($string){
+	return base64_encode(authcode($string,'ENCODE'));	
+
+}
+
+function decrypt($string){
+	return authcode(base64_decode($string),'DECODE');
+}
+
+
+
+
+
+
+
+
+

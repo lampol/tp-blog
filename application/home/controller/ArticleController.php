@@ -13,7 +13,7 @@ class ArticleController extends Controller
 	}
 
 	public function detailArticle($aid){
-		$id = authcode($aid,'DECODE');
+		$id = decrypt($aid);
 		$art = new Article;
 		$article = $art->getOneArticle($id);
 		$this->assign('article',$article);
