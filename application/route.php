@@ -25,5 +25,5 @@ Route::post('admin/upArtImg','admin/UploadController/uploadArt');
 
 //前台路由
 Route::get('/','home/IndexController/index');
-Route::get('list','home/ArticleController/listArticle');
+Route::get('list/cid/:cid','home/ArticleController/listArticle');
 Route::get('detail/aid/:aid','home/ArticleController/detailArticle');

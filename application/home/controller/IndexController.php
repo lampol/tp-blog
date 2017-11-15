@@ -1,10 +1,10 @@
 <?php
 namespace app\home\controller;
 
-use think\Controller;
+use app\home\controller\BaseController;
 use app\home\model\Article;
 
-class IndexController extends Controller
+class IndexController extends BaseController
 {
 
 	public function index(){

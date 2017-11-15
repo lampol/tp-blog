@@ -35,7 +35,9 @@
        <div class="menu-container"> 
         <ul id="menu" class="down-menu nav-menu"> 
          <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item"><a href="/"><i class="iconfont icon-home"></i>首页</a></li> 
-         <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children"><a href="www.lampol-blog.com/category/share"><i class="iconfont icon-codebraces"></i>技术分享</a> </li> 
+	 {volist name="cats" id="vo"}
+	 <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children"><a href="{{:url('/list',['cid'=>encrypt($vo.id)])}}"><i class="iconfont icon-codebraces"></i>{{$vo.cat_name}}</a> </li> 
+	 {/volist}
         </ul> 
        </div> 
       </nav> 

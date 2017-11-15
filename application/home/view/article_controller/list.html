@@ -1,4 +1,33 @@
-﻿   <div class="breadcrumb"> 
+﻿<style>
+        .pagination{
+                width:300px;
+        }
+        .pagination li{
+                float:left
+        }
+        .disabled {
+                background: #fff none repeat scroll 0 0;
+                border: 1px solid #ddd;
+                border-radius: 2px;
+                box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+                float: left;
+                line-height: 100%;
+                margin: 0 0 10px 5px;
+                 padding: 8px 11px;
+        }
+        .active{
+                background:#304040;
+                color:#fff;
+                 border: 1px solid #ddd;
+                 border-radius: 2px;
+                box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+                float: left;
+                line-height: 100%;
+                margin: 0 0 10px 5px;
+                padding: 8px 11px;
+        }
+</style>    
+<div class="breadcrumb"> 
     <a class="crumbs" title="返回首页" href="www.lampol-blog.com">首页</a>
     <i class="iconfont icon-chevronright"></i>
     <a href="www.lampol-blog.com/category/share">技术分享</a>
@@ -13,70 +42,42 @@
        </div> 
       </div> 
       <main id="main" class="site-main" role="main"> 
+
+	{volist name="articles" id="vo"}
        <article id="post-112" class="post-112 post type-post status-publish format-standard hentry category-computer-technology tag-ie tag-56"> 
         <div class="art-desc"> 
-         <h3 class="art-t"> <a href="www.lampol-blog.com/112.html" rel="bookmark" title="卸载IE 11  10  9浏览器">卸载IE 11 10 9浏览器</a> </h3> 
+		<h3 class="art-t"> <a href="{{:url('/detail',['aid'=>encrypt($vo.id)])}}" rel="bookmark" title="{{$vo.title}}">{{$vo.title}}</a> </h3> 
          <div class="more"> 
           <a href="www.lampol-blog.com/112.html" rel="bookmark"><i class="iconfont icon-import"></i></a> 
          </div> 
          <div class="clear"></div> 
          <div style="min-height:150px;margin:20px"> 
           <div class="art-img">
-           <a href="www.lampol-blog.com/112.html"><img src="picture/timthumb.php" alt="卸载IE 11  10  9浏览器" /></a>
+		  <a href="{{:url('/detail',['aid'=>encrypt($vo.id)])}}"><img src="/{{$vo.img_url}}" alt="卸载IE 11  10  9浏览器" /></a>
           </div> 
-          <span class="art-main">由于某些情况我们可能需要固定的浏览器，比如IE8 那么可能需要卸载已有的IE版本，win7的最低IE版本为IE8.0，所有可以卸载还原成IE8的浏览器。 方法一 该方法比较常用，就是在【程序和功能】里面，有个【查看已安...</span> 
+	  <span class="art-main">{{$vo.summary}}</span> 
          </div> 
          <div class="clear"></div> 
         </div> 
         <div class="art_ft"> 
          <div class="art-pub"> 
           <div class="views"> 
-           <i class="iconfont icon-chartbar"></i> 399 
+		  <i class="iconfont icon-chartbar"></i> {{$vo.views}}
           </div> 
           <div class="cmnt"> 
            <a href="www.lampol-blog.com/112.html#respond"><i class="iconfont icon-messageprocessing"></i> 评论</a> 
           </div> 
          </div> 
          <div class="art-info"> 
-          <span class="archive"><i class="iconfont icon-archive" aria-hidden="true"></i> <a href="www.lampol-blog.com/category/share/computer-technology">电脑技术</a></span> 
-          <span class="data"><i class="iconfont icon-calendartext"></i> 2016-11-15</span> 
-          <span class="tag"><i class="iconfont icon-tagmultiple"></i> <a href="www.lampol-blog.com/tag/ie" rel="tag">IE</a>、<a href="www.lampol-blog.com/tag/%e5%8d%b8%e8%bd%bd" rel="tag">卸载</a></span> 
+		 <span class="archive"><i class="iconfont icon-archive" aria-hidden="true"></i>{{$vo.author}}</span> 
+		 <span class="data"><i class="iconfont icon-calendartext"></i>{{$vo.created_at|date="Y-m-d",###}}</span> 
+		 <span class="tag"><i class="iconfont icon-tagmultiple"></i> <a href="www.lampol-blog.com/tag/ie" rel="tag">{{$vo.tag}}</a></span> 
          </div> 
         </div> 
         <div class="clear"></div> 
        </article> 
-       <article id="post-93" class="post-93 post type-post status-publish format-standard hentry category-web-technology tag-ssl tag-startssl tag-43"> 
-        <div class="art-desc"> 
-         <h3 class="art-t"> <a href="www.lampol-blog.com/93.html" rel="bookmark" title="申请StartSSL免费的DV SSL证书">申请StartSSL免费的DV SSL证书</a> </h3> 
-         <div class="more"> 
-          <a href="www.lampol-blog.com/93.html" rel="bookmark"><i class="iconfont icon-import"></i></a> 
-         </div> 
-         <div class="clear"></div> 
-         <div style="min-height:150px;margin:20px"> 
-          <div class="art-img">
-           <a href="www.lampol-blog.com/93.html"><img src="picture/timthumb.php" alt="申请StartSSL免费的DV SSL证书" /></a>
-          </div> 
-          <span class="art-main">现在很多网站为了安全，基本第一时间都会考虑开启SSL功能，网上现在有很多可以申请证书的网站，但是免费的基本上都是DV证书，如果想带绿标的你的申请EV证书，不过现在还没发现有免费的，现在我们来学学如何申请St...</span> 
-         </div> 
-         <div class="clear"></div> 
-        </div> 
-        <div class="art_ft"> 
-         <div class="art-pub"> 
-          <div class="views"> 
-           <i class="iconfont icon-chartbar"></i> 528 
-          </div> 
-          <div class="cmnt"> 
-           <a href="www.lampol-blog.com/93.html#comments"><i class="iconfont icon-messageprocessing"></i> 2</a> 
-          </div> 
-         </div> 
-         <div class="art-info"> 
-          <span class="archive"><i class="iconfont icon-archive" aria-hidden="true"></i> <a href="www.lampol-blog.com/category/share/web-technology">网站技术</a></span> 
-          <span class="data"><i class="iconfont icon-calendartext"></i> 2016-10-28</span> 
-          <span class="tag"><i class="iconfont icon-tagmultiple"></i> <a href="www.lampol-blog.com/tag/ssl" rel="tag">SSL</a>、<a href="www.lampol-blog.com/tag/startssl" rel="tag">StartSSL</a>、<a href="www.lampol-blog.com/tag/%e8%af%81%e4%b9%a6" rel="tag">证书</a></span> 
-         </div> 
-        </div> 
-        <div class="clear"></div> 
-       </article> 
+       {/volist}
+
       </main> 
      </div> 
      <nav id="nav-below"> 
@@ -85,13 +86,5 @@
        <a href="www.lampol-blog.com/category/share/page/2"></a>
       </div> 
      </nav> 
-     <nav class="navigation pagination" role="navigation"> 
-      <h2 class="screen-reader-text">文章导航</h2> 
-      <div class="nav-links">
-       <span class="page-numbers current"><span class="screen-reader-text">第 </span>1<span class="screen-reader-text"> 页</span></span> 
-       <a class="page-numbers" href="www.lampol-blog.com/category/share/page/2"><span class="screen-reader-text">第 </span>2<span class="screen-reader-text"> 页</span></a> 
-       <a class="page-numbers" href="www.lampol-blog.com/category/share/page/3"><span class="screen-reader-text">第 </span>3<span class="screen-reader-text"> 页</span></a> 
-       <a class="next page-numbers" href="www.lampol-blog.com/category/share/page/2"><i class="iconfont icon-chevronright"></i></a>
-      </div> 
-     </nav> 
+     {{$articles->render()}}
     </div> 

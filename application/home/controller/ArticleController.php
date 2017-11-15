@@ -1,13 +1,20 @@
 <?php
 namespace app\home\controller;
 
-use think\Controller;
+use app\home\controller\BaseController;
 use app\home\model\Article;
 
-class ArticleController extends Controller
+class ArticleController extends BaseController
 {
 
-	public function listArticle(){
+	public function listArticle($cid){
+		$cat_id = decrypt($cid);
+
+		$article = new Article;
+
+		$articles = $article->getCatArticle($cat_id);
+
+		$this->assign('articles',$articles);
 	
 		return $this->fetch('list');
 	}
