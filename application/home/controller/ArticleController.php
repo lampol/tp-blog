@@ -13,8 +13,11 @@ class ArticleController extends BaseController
 		$article = new Article;
 
 		$articles = $article->getCatArticle($cat_id);
+		$cat_name = $article->getCatName($cat_id);
 
 		$this->assign('articles',$articles);
+		$this->assign('cat_id',$cat_id);
+		$this->assign('cat_name',$cat_name);
 	
 		return $this->fetch('list');
 	}
@@ -23,6 +26,7 @@ class ArticleController extends BaseController
 		$id = decrypt($aid);
 		$art = new Article;
 		$article = $art->getOneArticle($id);
+		$art->addViews($id);
 		$this->assign('article',$article);
 		return $this->fetch('detail');
 	}

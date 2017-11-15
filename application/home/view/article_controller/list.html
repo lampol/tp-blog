@@ -28,17 +28,16 @@
         }
 </style>    
 <div class="breadcrumb"> 
-    <a class="crumbs" title="返回首页" href="www.lampol-blog.com">首页</a>
-    <i class="iconfont icon-chevronright"></i>
-    <a href="www.lampol-blog.com/category/share">技术分享</a>
-    <i class="iconfont icon-chevronright"></i>文章 
+    <a class="crumbs" title="返回首页" href="/">首页</a>
+    <i class="iconfont icon-chevronright">/</i>
+    <span>{{$cat_name}}</span>
    </div> 
    <div id="content">
     <div id="primary" class="content-area"> 
      <div id="page"> 
       <div class="catepory-title"> 
        <div class="entry-header">
-        <h1>分类：《技术分享》</h1>
+	       <h1>分类:{{$cat_name}}</h1>
        </div> 
       </div> 
       <main id="main" class="site-main" role="main"> 

@@ -24,7 +24,7 @@
    <div id="menu-box"> 
     <div id="main-menu"> 
      <hgroup class="logo-sites"> 
-      <h1 class="site-title"> <a href="www.lampol-blog.com/"><img src="__HOME__/images/logo.png" alt="lampol" /></a> </h1> 
+      <h1 class="site-title"> <a href="/"><img src="__HOME__/images/logo.png" alt="lampol" /></a> </h1> 
      </hgroup> 
      <div id="sidr-close"> 
       <a href="#sidr-close" class="toggle-sidr-close">&times;</a> 
@@ -33,10 +33,21 @@
      <div id="site-nav-wrap"> 
       <nav id="site-nav" class="main-nav"> 
        <div class="menu-container"> 
-        <ul id="menu" class="down-menu nav-menu"> 
+        <ul id="menu" class="down-menu nav-menu">
+		{if(isset($cur))}	
          <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item"><a href="/"><i class="iconfont icon-home"></i>首页</a></li> 
+	 	{else/}
+         <li class="menu-item menu-item-type-custom menu-item-object-custom current_page_item"><a href="/"><i class="iconfont icon-home"></i>首页</a></li> 
+			
+		{/if}
 	 {volist name="cats" id="vo"}
-	 <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children"><a href="{{:url('/list',['cid'=>encrypt($vo.id)])}}"><i class="iconfont icon-codebraces"></i>{{$vo.cat_name}}</a> </li> 
+	 	{if(isset($cat_id)&&$vo.id==$cat_id)}
+	 <li class="menu-item menu-item-type-taxonomy current-menu-item  menu-item-object-category menu-item-has-children"><a href="{{:url('/list',['cid'=>encrypt($vo.id)])}}"><i class="iconfont icon-codebraces"></i>{{$vo.cat_name}}</a> </li>
+		{else/}
+	 <li class="menu-item menu-item-type-taxonomy  menu-item-object-category menu-item-has-children"><a href="{{:url('/list',['cid'=>encrypt($vo.id)])}}"><i class="iconfont icon-codebraces"></i>{{$vo.cat_name}}</a> </li>
+		
+
+		{/if}	
 	 {/volist}
         </ul> 
        </div> 

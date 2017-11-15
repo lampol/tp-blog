@@ -11,6 +11,7 @@ class IndexController extends BaseController
 		$article = new Article;
 		$articles = $article->getAllArticle();
 		$this->assign('articles',$articles);
+		$this->assign('cur','cur');
 		return $this->fetch();
 	}
 }

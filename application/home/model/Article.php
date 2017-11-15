@@ -26,4 +26,13 @@ class Article extends Model
 	
 		return $this->where('cat_id',$cat_id)->field(['id','title','author','img_url','summary','tag','created_at','views'])->paginate(2);
 	}
+	//获取文章分类名称
+	public function getCatName($cat_id){
+	
+		return Db::name('cat')->where('id',$cat_id)->value('cat_name');
+	}
+	//增加文章浏览量
+	public function addViews($id){
+		$this->where('id',$id)->setInc('views');
+	}
 }
