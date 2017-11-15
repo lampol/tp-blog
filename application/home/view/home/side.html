@@ -14,13 +14,10 @@
 <!-- 右侧分类开始--> 
     <aside id="categories-2" class="widget widget_categories"> 
      <h3 class="widget-title"><i class="iconfont icon-viewgrid"></i>分类目录</h3> 
-     <ul> 
-      <li class="cat-item cat-item-47"><a href="www.lampol-blog.com/category/au3">AU3编程</a> </li> 
-      <li class="cat-item cat-item-2"><a href="www.lampol-blog.com/category/share/wordpress" title="分享关于wordpress的技术，代码">Wordpress</a> </li> 
-      <li class="cat-item cat-item-28"><a href="www.lampol-blog.com/category/digital-secret">数字奥秘</a> </li> 
-      <li class="cat-item cat-item-88"><a href="www.lampol-blog.com/category/share/%e6%b3%a8%e5%86%8c%e8%a1%a8%e7%9b%b8%e5%85%b3">注册表相关</a> </li> 
-      <li class="cat-item cat-item-23"><a href="www.lampol-blog.com/category/share/computer-technology">电脑技术</a> </li> 
-      <li class="cat-item cat-item-6"><a href="www.lampol-blog.com/category/share/web-technology">网站技术</a> </li> 
+     <ul>
+	     {volist name="cats" id="vo"} 
+	     <li class="cat-item cat-item-47"><a href="{{:url('/list',['cid'=>encrypt($vo.id)])}}">{{$vo.cat_name}}</a> </li> 
+      {/volist}
      </ul> 
      <div class="clear"></div> 
     </aside> 
@@ -30,16 +27,9 @@
     <aside id="recent-posts-2" class="widget widget_recent_entries"> 
      <h3 class="widget-title"><i class="iconfont icon-viewgrid"></i>近期文章</h3> 
      <ul> 
-      <li> <a href="www.lampol-blog.com/185.html">MyDream主题使用教程</a> </li> 
-      <li> <a href="www.lampol-blog.com/167.html">运用autoit写的系统补丁检测</a> </li> 
-      <li> <a href="www.lampol-blog.com/165.html">检索Windows系统已安装补丁的方法</a> </li> 
-      <li> <a href="www.lampol-blog.com/162.html">IE11的离线安装制作，无需联网</a> </li> 
-      <li> <a href="www.lampol-blog.com/161.html">屏蔽重置浏览器第一次打开弹出IE升级页面</a> </li> 
-      <li> <a href="www.lampol-blog.com/159.html">Internet 临时文件和历史记录设置-注册表</a> </li> 
-      <li> <a href="www.lampol-blog.com/151.html">AU3给系统安装字体</a> </li> 
-      <li> <a href="www.lampol-blog.com/147.html">AU3 循环创建标签（动态创建）</a> </li> 
-      <li> <a href="www.lampol-blog.com/145.html">AU3相关常用代码</a> </li> 
-      <li> <a href="www.lampol-blog.com/142.html">AU3 文件拖动到ListView并做图片缩放</a> </li> 
+	     {volist name="new_art" id="vo"}
+	     <li> <a href="{{:url('/detail',['aid'=>encrypt($vo.id)])}}">{{$vo.title}}</a> </li> 
+      {/volist}
      </ul> 
      <div class="clear"></div> 
     </aside> 
@@ -99,9 +89,9 @@
      <aside id="tag_cloud-2" class="widget tag_cloud"> 
       <h3 class="widget-title"><i class="iconfont icon-viewgrid"></i>热门标签</h3> 
       <div class="tagcloud"> 
-       <a href="www.lampol-blog.com/tag/%e7%99%be%e5%ba%a6%e5%88%86%e4%ba%ab" class="tag-cloud-link tag-link-3 tag-link-position-1" style="color:#70807a;font-size: 15px;;">百度分享</a> 
-       <a href="www.lampol-blog.com/tag/wordpress" class="tag-cloud-link tag-link-16 tag-link-position-2" style="color:#63e40e;font-size: 15px;;">wordpress</a> 
-       <a href="www.lampol-blog.com/tag/mydream" class="tag-cloud-link tag-link-14 tag-link-position-3" style="color:#84dde8;font-size: 15px;;">MyDream</a> 
+	      {volist name="hot_tags" id="vo"}
+	      <a href="javascript:;" class="tag-cloud-link tag-link-14 tag-link-position-3" style="color:#84dde8;font-size: 15px;;">{{$vo}}</a> 
+       {/volist}
        <div class="clear"></div> 
       </div> 
       <div class="clear"></div> 

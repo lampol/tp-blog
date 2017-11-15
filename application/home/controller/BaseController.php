@@ -12,6 +12,10 @@ class BaseController extends Controller
 	
 		$article = new Article;
 		$cats = $article->getAllCat();	
+		$new_art = $article->getNewArt();
+		$hot_tags = $article->getHotTag();
 		View::share('cats',$cats);
+		View::share('hot_tags',$hot_tags);
+		View::share('new_art',$new_art);
 	}
 }

@@ -35,4 +35,17 @@ class Article extends Model
 	public function addViews($id){
 		$this->where('id',$id)->setInc('views');
 	}
+	//获取最近文章
+	//
+	public function getNewArt(){
+		return $this->field(['id','title'])->order('created_at DESC')->limit(10)->select()->toArray();
+	
+	}
+	//获取热门标签
+	public function getHotTag(){
+		return $this->order('views DESC')->distinct(true)->limit(30)->column('tag');
+	}
+
+
+
 }
