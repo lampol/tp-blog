@@ -26,8 +26,10 @@ class ArticleController extends BaseController
 		$id = decrypt($aid);
 		$art = new Article;
 		$article = $art->getOneArticle($id);
+		$randArticle = $art->getRandArticle($id);
 		$art->addViews($id);
 		$this->assign('article',$article);
+		$this->assign('randArticle',$randArticle);
 		return $this->fetch('detail');
 	}
 

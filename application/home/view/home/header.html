@@ -44,9 +44,9 @@
 		{/if}
 	 {volist name="cats" id="vo"}
 	 	{if(isset($cat_id)&&$vo.id==$cat_id)}
-	 <li class="menu-item menu-item-type-taxonomy current-menu-item  menu-item-object-category menu-item-has-children"><a href="{{:url('/list',['cid'=>encrypt($vo.id)])}}"><i class="iconfont icon-codebraces"></i>{{$vo.cat_name}}</a> </li>
+	 <li class="menu-item menu-item-type-taxonomy current-menu-item  menu-item-object-category menu-item-has-children"><a href="{{:url('/list',['cid'=>encrypt($vo.id)])}}">{{$vo.cat_name}}</a> </li>
 		{else/}
-	 <li class="menu-item menu-item-type-taxonomy  menu-item-object-category menu-item-has-children"><a href="{{:url('/list',['cid'=>encrypt($vo.id)])}}"><i class="iconfont icon-codebraces"></i>{{$vo.cat_name}}</a> </li>
+	 <li class="menu-item menu-item-type-taxonomy  menu-item-object-category menu-item-has-children"><a href="{{:url('/list',['cid'=>encrypt($vo.id)])}}">{{$vo.cat_name}}</a> </li>
 		
 
 		{/if}	

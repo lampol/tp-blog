@@ -46,6 +46,13 @@ class Article extends Model
 		return $this->order('views DESC')->distinct(true)->limit(30)->column('tag');
 	}
 
+	//随机获取4条同一分类的文章
+	public function getRandArticle($id){
+		$cid = $this->where('id',$id)->value('cat_id');
+		$res = $this->where('cat_id',$cid)->field(['id','img_url','title'])->order('rand()')->limit(4)->select()->toArray();
+		return  $res;	
+	}
+
 
 
 }

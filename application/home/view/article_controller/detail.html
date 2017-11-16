@@ -45,34 +45,29 @@
       <div id="copyright"> 
        <img alt="" src="__HOME__/images/nick.jpg" class="avatar avatar-72" width="72" height="72" /> 
        <ul class="spostinfo"> 
-        <li>原文链接：<a target="_blank" rel="nofollow" href="">www.lampol-blog.com/93.html</a></li> 
-        <li>版权声明：本站原创文章，于1年前，由<a href="www.lampol-blog.com/author/skysmile" title="由skysmile发布" rel="author">skysmile</a>发表。</li> 
-        <li>转载请注明：<a href="www.lampol-blog.com/93.html" rel="bookmark" title="本文固定链接 www.lampol-blog.com/93.html">申请StartSSL免费的DV SSL证书 lampol</a></li> 
+	       <a target="_blank" rel="nofollow" href="{{:url('/detail',['aid'=>encrypt($article.id)],'',true)}}">原文链接</a></li> 
+	       <li>版权声明：本站原创文章，于{{$article.created_at|date="Y-m-d",###}}，由<span  rel="author">{{$article.author}}</span>发表。</li> 
+	       <li>转载请注明：<span rel="bookmark" >{{$article.title}}</span></li> 
        </ul> 
       </div> 
       <div id="related-img"> 
        <!--如果存在tag标签，列出tag相关文章 --> 
        <!-- 如果tag相关文章少于10篇，那么继续以分类作为相关因素列出相关文章 --> 
+       
+       {volist name="randArticle" id="vo"}
        <div class="r4"> 
         <div class="related-site"> 
          <figure class="related-site-img"> 
-          <a href="www.lampol-blog.com/48.html"><img src="__HOME__/images/demo.jpg" alt="Google Adsense 广告加载缓慢解决办法" /></a> 
+		 <a href="{{:url('/detail',['aid'=>encrypt($vo.id)])}}"><img src="/{{$vo.img_url}}" alt="{{$vo.title}}" /></a> 
          </figure> 
          <div class="related-title">
-          <a href="www.lampol-blog.com/48.html">Google Adsense 广告加载缓慢解决办法</a>
+		 <a href="{{:url('/detail',['aid'=>encrypt($vo.id)])}}">{{$vo.title}}</a>
          </div> 
         </div> 
        </div> 
-       <div class="r4"> 
-        <div class="related-site"> 
-         <figure class="related-site-img"> 
-          <a href="www.lampol-blog.com/12.html"><img src="__HOME__/images/demo.jpg" alt="自定义字体图标" /></a> 
-         </figure> 
-         <div class="related-title">
-          <a href="www.lampol-blog.com/12.html">自定义字体图标</a>
-         </div> 
-        </div> 
-       </div> 
+       {/volist}
+
+
        <div class="clear"></div> 
       </div> 
       <!-- 上下文 --> 
