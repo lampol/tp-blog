@@ -1,35 +1,6 @@
-﻿<style>
-        .pagination{
-                width:300px;
-        }
-        .pagination li{
-                float:left
-        }
-        .disabled {
-                background: #fff none repeat scroll 0 0;
-                border: 1px solid #ddd;
-                border-radius: 2px;
-                box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
-                float: left;
-                line-height: 100%;
-                margin: 0 0 10px 5px;
-                 padding: 8px 11px;
-        }
-        .active{
-                background:#304040;
-                color:#fff;
-                 border: 1px solid #ddd;
-                 border-radius: 2px;
-                box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
-                float: left;
-                line-height: 100%;
-                margin: 0 0 10px 5px;
-                padding: 8px 11px;
-        }
-</style>    
-<div class="breadcrumb"> 
+﻿<div class="breadcrumb"> 
     <a class="crumbs" title="返回首页" href="/">首页</a>
-    <i class="iconfont icon-chevronright">/</i>
+    <i class="iconfont icon-chevronright"></i>
     <span>{{$cat_name}}</span>
    </div> 
    <div id="content">
@@ -87,3 +58,21 @@
      </nav> 
      {{$articles->render()}}
     </div> 
+    <script>
+
+if($(window).width()>'533'){
+	        $('.pagination .active').addClass('page-numbers').addClass('current');
+		        $('.pagination').css('width','300px');
+			        $('.pagination li').css('float','left');
+}else{
+
+	        $('.pagination li').addClass('page-numbers');
+		        if($('.active').text()=='1'){
+
+				                $('.pagination li').last().addClass('current').css('margin-left','45%');
+						        }else{
+								                $('.pagination li').first().addClass('current').css('margin-left','45%');
+										        }
+			        $('.pagination li a').addClass('screen-reader-text');
+}
+    </script>

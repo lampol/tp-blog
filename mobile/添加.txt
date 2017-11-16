@@ -1,0 +1,23 @@
+<link rel='stylesheet' id='iconfont-css'  href='css/font.css' type='text/css' media='all' />
+<script type='text/javascript' src='js/superfish.js'></script>
+
+
+
+<script>
+
+if($(window).width()>'533'){
+        $('.pagination .active').addClass('page-numbers').addClass('current');
+        $('.pagination').css('width','300px');
+        $('.pagination li').css('float','left');
+}else{
+
+        $('.pagination li').addClass('page-numbers');
+        if($('.active').text()=='1'){
+                        
+                $('.pagination li').last().addClass('current').css('margin-left','45%');
+        }else{
+                $('.pagination li').first().addClass('current').css('margin-left','45%');
+        }
+        $('.pagination li a').addClass('screen-reader-text');
+}
+</script>
