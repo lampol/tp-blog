@@ -71,9 +71,22 @@
        <div class="clear"></div> 
       </div> 
       <!-- 上下文 --> 
-      <nav class="nav-single"> 
-       <a href="www.lampol-blog.com/91.html" rel="prev"><span class="meta-nav"><span class="post-nav"><i class="iconfont icon-chevronleft"></i> 旧一篇</span><br />申请免费的自己域名邮箱</span></a>
-       <span class="meta-nav"><span class="post-nav">没有了<br /></span>已是最新文章</span> 
+      <nav class="nav-single">
+	{if(is_array($preArticle))}
+	<a href="{{:url('/detail',['aid'=>encrypt($preArticle.id)])}}" rel="prev"><span class="meta-nav"><span class="post-nav"><i class="iconfont icon-chevronleft"></i>上一篇</span><br />{{$preArticle.title}}</span></a>
+	{else/}
+
+	<span class="meta-nav"><span class="post-nav">没有了<br /></span>{{$preArticle}}</span> 
+	{/if}
+
+	{if(is_array($nextArticle))}
+	<a href="{{:url('/detail',['aid'=>encrypt($nextArticle.id)])}}" rel="prev"><span class="meta-nav"><span class="post-nav"><i class="iconfont icon-chevronleft"></i>下一篇</span><br />{{$nextArticle.title}}</span></a>
+	{else/}
+
+	<span class="meta-nav"><span class="post-nav">没有了<br /></span>{{$nextArticle}}</span>
+	{/if}
+
+
        <div class="clear"></div> 
       </nav> 
       <!-- 文章评论 --> 

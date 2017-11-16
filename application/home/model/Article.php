@@ -53,6 +53,27 @@ class Article extends Model
 		return  $res;	
 	}
 
+	//获取上一篇文章
+	public function getPreArticle($id){
+		$res = $this->where('id','<',$id)->field(['id','title'])->order('id DESC')->limit(1)->find();
+
+		if($res){
+			return $res->toArray();			
+		}else{
+			return $res="已经是最新的文章了";
+		}
+	}
+	//获取下一篇文章
+	public function getNextArticle($id){
+		$res = $this->where('id','>',$id)->field(['id','title'])->order('id ASC')->limit(1)->find();
+		if($res){
+			return $res->toArray(); 
+		}else{
+			return $res="已经是最后的文章了";
+		}
+	}
+
+
 
 
 }

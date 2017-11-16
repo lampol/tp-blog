@@ -27,8 +27,12 @@ class ArticleController extends BaseController
 		$art = new Article;
 		$article = $art->getOneArticle($id);
 		$randArticle = $art->getRandArticle($id);
+		$preArticle  = $art->getPreArticle($id);
+		$nextArticle  = $art->getNextArticle($id);
 		$art->addViews($id);
 		$this->assign('article',$article);
+		$this->assign('preArticle',$preArticle);
+		$this->assign('nextArticle',$nextArticle);
 		$this->assign('randArticle',$randArticle);
 		return $this->fetch('detail');
 	}
