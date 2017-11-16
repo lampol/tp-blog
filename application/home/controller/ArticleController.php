@@ -3,6 +3,7 @@ namespace app\home\controller;
 
 use app\home\controller\BaseController;
 use app\home\model\Article;
+use think\Request;
 
 class ArticleController extends BaseController
 {
@@ -23,6 +24,7 @@ class ArticleController extends BaseController
 	}
 
 	public function detailArticle($aid){
+		$domain = Request::instance()->domain();
 		$id = decrypt($aid);
 		$art = new Article;
 		$article = $art->getOneArticle($id);
@@ -32,6 +34,7 @@ class ArticleController extends BaseController
 		$art->addViews($id);
 		$this->assign('article',$article);
 		$this->assign('preArticle',$preArticle);
+		$this->assign('domain',$domain);
 		$this->assign('nextArticle',$nextArticle);
 		$this->assign('randArticle',$randArticle);
 		return $this->fetch('detail');
