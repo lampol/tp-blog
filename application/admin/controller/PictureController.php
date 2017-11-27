@@ -15,6 +15,9 @@ class PictureController extends BaseController
      */
     public function index()
     {
+	$picture = new Pic;
+	$pics = $picture->getAllPic();
+	$this->assign('pics',$pics);
         return $this->fetch();
     }
 
@@ -64,7 +67,10 @@ class PictureController extends BaseController
      */
     public function edit($id)
     {
-        //
+	$picture = new Pic;
+	$pic     = $picture->getOnePic($id);
+	$this->assign('pic',$pic);
+	return $this->fetch();
     }
 
     /**
@@ -76,7 +82,14 @@ class PictureController extends BaseController
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->except(['_method','file']);
+	$picture = new Pic;
+	$res = $picture->updatePic($id,$data);
+	if($res['status']=='fail'){                              
+       		 return $this->error($res['info'],'/admin/pic');  
+	}                                                        
+        return $this->success($res['info'],'/admin/pic');
+	
     }
 
     /**

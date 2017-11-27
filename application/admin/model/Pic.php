@@ -17,4 +17,25 @@ class Pic extends Model
 		}
 		return $res;
 	}
+	//获取所有的幻灯片
+	public function getAllPic(){
+		return  $this->field(['summary'],true)->select()->toArray();
+	}
+	//获取一条幻灯片信息
+
+	public function getOnePic($id){
+		return $this->where('id',$id)->find()->toArray();
+
+	}
+
+	//修改幻灯片
+
+	public function updatePic($id,$data){
+		if($this->where('id',$id)->update($data)){
+			$res = ['status'=>'success','info'=>'修改幻灯片成功'];
+		}else{
+			$res = ['status'=>'fail','info'=>'修改幻灯片失败'];
+		}		
+		return $res;
+	}
 }
