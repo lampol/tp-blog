@@ -4,6 +4,7 @@ namespace app\admin\controller;
 
 use app\admin\controller\BaseController;
 use think\Request;
+use app\admin\model\Pic;
 
 class PictureController extends BaseController
 {
@@ -35,7 +36,13 @@ class PictureController extends BaseController
      */
     public function save(Request $request)
     {
-        //
+        $data = $request->except('file');
+	$picture = new Pic;
+	$res = $picture->addPic($data);
+	if($res['status']=='fail'){
+		return $this->error($res['info'],'/admin/pic');
+	}
+		return $this->success($res['info'],'/admin/pic');
     }
 
     /**

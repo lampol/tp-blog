@@ -19,7 +19,7 @@ class UploadController extends Controller
 		if($res){
 			$fileName = $res->getPathName();
 			$image = Image::open($fileName);
-			$image->thumb(250,150)->save($fileName);
+			$image->thumb(250,150,Image::THUMB_FIXED)->save($fileName);
 			$data = ['status'=>'success','info'=>$fileName];
 		}else{
 			$data = ['status'=>'fail','info'=>$file->getError()];
@@ -28,4 +28,25 @@ class UploadController extends Controller
 
 
 	}
+
+	//上传幻灯片
+	public function uploadPic(Request $request){
+		$validate = Config::get('image.VALIDATE');
+		$path = Config::get('image.ARTPIC');
+		$file =  $request->file('file');
+		$res  = $file->validate($validate)->move($path);
+		if($res){                                                     
+       			 $fileName = $res->getPathName();                      
+        		$image = Image::open($fileName);                      
+        		$image->thumb(920,300,Image::THUMB_FIXED)->save($fileName);              
+        		$data = ['status'=>'success','info'=>$fileName];      
+		}else{                                                        
+        		$data = ['status'=>'fail','info'=>$file->getError()]; 
+		}                                                             
+		return json($data);                                           
+                                                              		
+		
+	}
+
+
 }

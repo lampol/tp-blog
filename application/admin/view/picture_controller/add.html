@@ -2,7 +2,7 @@
   <link rel="stylesheet" type="text/css" href="__ADMIN__/lib/Validform_v5.3.2/css/style.css">
 <body style="background-color:#fff"> 
   <article class="page-container"> 
-	  <form class="form form-horizontal" id="form-article-add" method="post" action="{{:url('/admin/article')}}"> 
+	  <form class="form form-horizontal" id="form-article-add" method="post" action="{{:url('/admin/pic')}}"> 
     <div class="row cl"> 
      <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>幻灯片标题：</label> 
      <div class="formControls col-xs-8 col-sm-9"> 
@@ -39,8 +39,9 @@
        <div id="fileList" class="uploader-list"></div> 
        <div id="filePicker">
         选择图片
-       </div> 
-		<div class="formControls col-xs-offset-4" id="img" style="width:250px;height:150px;border:1px dashed #333"> 
+       </div>
+	<span class="c-red">*图片大小920*300</span>	 
+		<div class="formControls col-xs-offset-4" id="img" style="width:310px;height:100px;border:1px dashed #333"> 
 			请上传图片
 		</div>
 
@@ -59,11 +60,6 @@
   <!--请在下方写此页面业务相关的脚本--> 
   <script type="text/javascript" src="__ADMIN__/lib/webuploader/0.1.5/webuploader.min.js"></script> 
   <script type="text/javascript" src="__ADMIN__/lib/Validform_v5.3.2/js/Validform_v5.3.2_min.js"></script> 
-  <script type="text/javascript" src="__ADMIN__/lib/ueditor/1.4.3/ueditor.config.js"></script> 
-  <script type="text/javascript" src="__ADMIN__/lib/ueditor/1.4.3/ueditor.all.min.js"> </script> 
-  <script type="text/javascript" src="__ADMIN__/lib/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script> 
-  <script type="text/javascript">
-</script> 
 <script>
 // 初始化Web Uploader
 var uploader = WebUploader.create({
@@ -75,7 +71,7 @@ var uploader = WebUploader.create({
     swf: "__ADMIN__/lib/webuploader/0.1.5/Uploader.swf",
 
     // 文件接收服务端。
-    server: "{{:url('/admin/upArtImg')}}",
+    server: "{{:url('/admin/upPicImg')}}",
 
     // 选择文件的按钮。可选。
     // 内部根据当前运行是创建，可能是input元素，也可能是flash.
@@ -95,18 +91,12 @@ uploader.on( 'uploadSuccess', function( file ,data) {
 		$('#img').html('<span style="color:red">'+data.info+'</span>');	
 		
 	}else{
-	$('#img').html('<img src=/'+data.info+'><input type="hidden" name="img_url" value="'+data.info+'">');
+	$('#img').html('<img  style="width:310px;height:100px" src=/'+data.info+'><input type="hidden" name="img_url" value="'+data.info+'">');
 	
 	}
  });
 
 
-var ue = UE.getEditor('editor',{
-	toolbars:[['undo', 'redo','bold', 'italic', 'underline', 'forecolor', 'backcolor','customstyle', 'paragraph', 'fontfamily', 'fontsize','justifyleft', 'justifycenter', 'justifyright', 'justifyjustify','simpleupload','insertcode','emotion']],
-	autoHeightEnabled:false
-	
-
-});
 
 $(".form").Validform();
 
