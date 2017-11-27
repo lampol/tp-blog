@@ -72,7 +72,10 @@ class Article extends Model
 			return $res="已经是最后的文章了";
 		}
 	}
-
+	//获取幻灯片的信息
+	public function getAllPic(){
+		return Db::name('pic')->where('is_show',1)->field(['id','is_show'],true)->select()->toArray();
+	}
 
 
 

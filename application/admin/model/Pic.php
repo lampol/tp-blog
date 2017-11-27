@@ -38,4 +38,14 @@ class Pic extends Model
 		}		
 		return $res;
 	}
+	//删除幻灯片
+	public function deletePic($id){
+		if($this->where('id',$id)->delete()){
+			$res = ['status'=>'success','info'=>'删除幻灯片成功'];
+		}else{
+			$res = ['status'=>'fail','info'=>'删除幻灯片失败'];
+		}
+		return $res;
+	}	
+
 }

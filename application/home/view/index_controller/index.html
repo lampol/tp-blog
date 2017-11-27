@@ -17,25 +17,18 @@
     <div class="swiper-wrapper"> 
      <!-- 自定义栏目幻灯片show --> 
      <!-- 随机幻灯片--> 
+	{volist name="pics" id="vo"}
      <div class="swiper-slide"> 
       <div class="swiper-slide-image"> 
-       <a href="www.lampol-blog.com/104.html"><img src="__HOME__/images/demo.jpg" alt="AU3之浅尝-如何实现只能同时运行一个程序" /></a> 
+       <a href="{{$vo.url}}"><img src="/{{$vo.img_url}}" alt="{{$vo.title}}" /></a> 
       </div> 
       <div class="swiper-slide-text"> 
-       <h2><a href="www.lampol-blog.com/104.html" rel="bookmark">AU3之浅尝-如何实现只能同时运行一个程序</a></h2> 
-       <p> <a href="www.lampol-blog.com/104.html" target="_blank" rel="bookmark">有时候我们制作的程序，不想同时运行好几个，开那么多也没用，只要运行一个即可，那么我们可以用下面的判断 下面来解说下_Singleton 强制脚本仅执行一个 #include _Singleton ( $sOccurrenceName [, ...</a> </p> 
+       <h2><a href="{{$vo.url}}" rel="bookmark">{{$vo.title}}</a></h2> 
+       <p> <a href="{{$vo.url}}" target="_blank" rel="bookmark"> {{$vo.summary}} </a> </p> 
       </div> 
      </div> 
+	{/volist}
 
-     <div class="swiper-slide"> 
-      <div class="swiper-slide-image"> 
-       <a href="www.lampol-blog.com/147.html"> <img src="__HOME__/images/demo.jpg" alt="AU3 循环创建标签（动态创建）" /></a> 
-      </div> 
-      <div class="swiper-slide-text"> 
-       <h2><a href="www.lampol-blog.com/147.html" rel="bookmark">AU3 循环创建标签（动态创建）</a></h2> 
-       <p> <a href="www.lampol-blog.com/147.html" target="_blank" rel="bookmark">在AU3中我们有时候需要动态创建标签，利用FOR...TO... 语句循环创建，那个相对于的坐标值也要相对应改变，下面先从最简单的，单向创建，也就是横向创建或者纵向创建，均是单列或单行 代码如下： [crayon-59ffcc56d1e84...</a> </p> 
-      </div> 
-     </div> 
      <!-- 自定义幻灯片 --> 
     </div> 
     <div class="swiper-pagination"></div> 

@@ -100,6 +100,8 @@ class PictureController extends BaseController
      */
     public function delete($id)
     {
-        //
+	$picture = new Pic;
+	$res = $picture->deletePic($id);
+	return json($res);
     }
 }
