@@ -1,0 +1,42 @@
+  <link rel="stylesheet" type="text/css" href="__ADMIN__/lib/Validform_v5.3.2/css/style.css">
+<body style="background-color:#fff"> 
+  <article class="page-container"> 
+	  <form class="form form-horizontal" id="form-article-add" method="post" action="{{:url('/admin/pic')}}"> 
+    <div class="row cl"> 
+     <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>网站名称：</label> 
+     <div class="formControls col-xs-8 col-sm-9"> 
+      <input type="text" class="input-text" name="site_name" datatype="s2-6" errormsg="请填写长度为2-6的标题" /> 
+     </div> 
+    </div> 
+    <div class="row cl">                                                                             
+     <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>网站地址：</label>      
+     <div class="formControls col-xs-8 col-sm-9">                                                    
+      <input type="text" class="input-text" name="url" datatype="url" errormsg="填写合法的地址" />                                                                                           
+     </div>                                                                                          
+    </div>            
+	
+	<div class="row cl">                                                                             
+ <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>排序：</label>
+    <div class="formControls col-xs-8 col-sm-9">                                           
+  <input type="text" class="input-text"  name="order_by" /> 
+</div>                                                                                             
+</div>                                                                                           
+                                                                                                 
+                                                                               
+    <div class="row cl"> 
+     <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2"> 
+      <button onclick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont"></i> 保存并提交审核</button> 
+      <button onclick="removeIframe();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button> 
+     </div> 
+    </div> 
+   </form> 
+  </article> 
+  <!--请在下方写此页面业务相关的脚本--> 
+  <script type="text/javascript" src="__ADMIN__/lib/Validform_v5.3.2/js/Validform_v5.3.2_min.js"></script> 
+<script>
+
+$(".form").Validform();
+
+</script>
+ </body>
+</html>

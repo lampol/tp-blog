@@ -1,0 +1,105 @@
+  <link rel="stylesheet" type="text/css" href="__ADMIN__/lib/webuploader/0.1.5/webuploader.css">
+  <link rel="stylesheet" type="text/css" href="__ADMIN__/lib/Validform_v5.3.2/css/style.css">
+<body style="background-color:#fff"> 
+  <article class="page-container"> 
+	  <form class="form form-horizontal" id="form-article-add" method="post" action="{{:url('/admin/pic/'.$pic.id)}}">
+	<input type="hidden" name="_method" value="put"> 
+    <div class="row cl"> 
+     <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>幻灯片标题：</label> 
+     <div class="formControls col-xs-8 col-sm-9"> 
+      <input type="text" class="input-text" value="{{$pic.title}}" name="title" datatype="s6-20" errormsg="请填写长度为6-20的标题" /> 
+     </div> 
+    </div> 
+    <div class="row cl">                                                                             
+     <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>幻灯片跳转地址：</label>      
+     <div class="formControls col-xs-8 col-sm-9">                                                    
+      <input type="text" class="input-text" value="{{$pic.url}}" name="url" datatype="url" errormsg="填写合法的地址" />                                                                                           
+     </div>                                                                                          
+    </div>            
+	
+	<div class="row cl">                                                                             
+ <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>是否展示：</label>
+    <div class="formControls col-xs-8 col-sm-9">                                           
+  <input type="radio"  name="is_show" value="1" {{$pic.is_show==1?'checked':''}} />是   
+  <input type="radio"  name="is_show" value="0" {{$pic.is_show==0?'checked':''}} />否   
+</div>                                                                                             
+</div>                                                                                           
+                                                                                                 
+                                                                               
+    <div class="row cl"> 
+     <label class="form-label col-xs-4 col-sm-2">文章摘要：</label> 
+     <div class="formControls col-xs-8 col-sm-9"> 
+      <textarea name="summary" cols="" rows="" class="textarea" placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="文章摘要不能为空" >{{$pic.summary}}</textarea> 
+      <p class="textarea-numberbar"><em class="textarea-length">0</em>/200</p> 
+     </div> 
+    </div> 
+    <div class="row cl"> 
+     <label class="form-label col-xs-4 col-sm-2">缩略图：</label> 
+     <div class="formControls col-xs-8 col-sm-9"> 
+      <div class="uploader-thum-container"> 
+       <div id="fileList" class="uploader-list"></div> 
+       <div id="filePicker">
+        选择图片
+       </div>
+	<span class="c-red">*图片大小920*300</span>	 
+		<div class="formControls col-xs-offset-4" id="img" style="width:310px;height:100px;border:1px dashed #333"> 
+			<img  style="width:310px;height:100px;" src="/{{$pic.img_url}}">
+		</div>
+
+      </div> 
+     </div> 
+    </div> 
+    <div class="row cl"> 
+     <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2"> 
+      <button onclick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont"></i> 修改并提交审核</button> 
+      <button onclick="removeIframe();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button> 
+     </div> 
+    </div> 
+   </form> 
+  </article> 
+  <!--请在下方写此页面业务相关的脚本--> 
+  <script type="text/javascript" src="__ADMIN__/lib/webuploader/0.1.5/webuploader.min.js"></script> 
+  <script type="text/javascript" src="__ADMIN__/lib/Validform_v5.3.2/js/Validform_v5.3.2_min.js"></script> 
+<script>
+// 初始化Web Uploader
+var uploader = WebUploader.create({
+
+    // 选完文件后，是否自动上传。
+    auto: true,
+
+    // swf文件路径
+    swf: "__ADMIN__/lib/webuploader/0.1.5/Uploader.swf",
+
+    // 文件接收服务端。
+    server: "{{:url('/admin/upPicImg')}}",
+
+    // 选择文件的按钮。可选。
+    // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+    pick: '#filePicker',
+
+    // 只允许选择图片文件。
+    accept: {
+        title: 'Images',
+        extensions: 'gif,jpg,jpeg,bmp,png',
+        mimeTypes: 'image/*'
+    }
+});
+
+// 文件上传成功，给item添加成功class, 用样式标记上传成功。
+uploader.on( 'uploadSuccess', function( file ,data) {
+	if(data.status=='fail'){
+		$('#img').html('<span style="color:red">'+data.info+'</span>');	
+		
+	}else{
+	$('#img').html('<img  style="width:310px;height:100px" src=/'+data.info+'><input type="hidden" name="img_url" value="'+data.info+'">');
+	
+	}
+ });
+
+
+
+$(".form").Validform();
+
+</script>
+ </body>
+</html>
