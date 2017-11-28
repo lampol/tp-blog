@@ -3,11 +3,10 @@
    <ul> 
     <li id="linkcat-25" class="linkcat"><h2>博友</h2> 
      <ul class="xoxo blogroll"> 
-      <span class="lx7"><span class="link-f"><a href="http://www.maninmusic.com" target="_blank">乐之随</a></span></span> 
-      <span class="lx7"><span class="link-f"><a href="http://www.ichenkun.cn" rel="nofollow" target="_blank">个人网站</a></span></span> 
-      <span class="lx7"><span class="link-f"><a href="https://www.lukedever.cn" target="_blank">Lukedever</a></span></span> 
+	{volist name="links" id="vo"}
+      <span class="lx7"><span class="link-f"><a href="{{$vo.site_url}}" target="_blank">{{$vo.site_name}}</a></span></span> 
+	{/volist}
      </ul> </li> 
-    <span class="lx7"> <span class="link-f"> <li><a href="www.lampol-blog.com/links" target="_blank" title="全部链接">更多链接<i class="icon-li"></i></a></li> </span> </span> 
    </ul> 
    <div class="clear"></div> 
   </div> 

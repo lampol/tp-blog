@@ -100,6 +100,8 @@ class LinkController extends BaseController
      */
     public function delete($id)
     {
-        //
+        $link = new Link;
+	$res = $link->deleteLink($id);
+	return json($res);
     }
 }

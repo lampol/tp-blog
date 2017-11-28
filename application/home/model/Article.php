@@ -76,7 +76,10 @@ class Article extends Model
 	public function getAllPic(){
 		return Db::name('pic')->where('is_show',1)->field(['id','is_show'],true)->select()->toArray();
 	}
-
+	//获取友情链接
+	public function getAllLink(){
+		return Db::name('link')->order('order_by')->select();
+	}
 
 
 }

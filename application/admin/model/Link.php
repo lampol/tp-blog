@@ -38,4 +38,16 @@ class Link extends Model
 		}
 		return $data;
 	}
+
+	//删除链接
+	public function deleteLink($id){
+		if($this->where('id',$id)->delete()){
+			$data = ['status'=>'success','info'=>'友情链接删除成功'];
+		}else{
+			$data = ['status'=>'fail','info'=>'友情链接删除失败'];
+		}
+		return $data;
+	}
+
+
 }
