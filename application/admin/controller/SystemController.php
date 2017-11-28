@@ -73,7 +73,13 @@ class SystemController extends BaseController
      */
     public function update(Request $request, $id)
     {
-        //
+	$data = $request->except('_method');
+	$system = new Sys;
+	$res = $system->updateSys($id,$data);
+	if($res['status']=='fail'){
+		return $this->error($res['info'],'/admin/sys');
+	}
+	return $this->success($res['info'],'/admin/sys');
     }
 
     /**

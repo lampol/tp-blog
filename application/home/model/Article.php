@@ -80,6 +80,9 @@ class Article extends Model
 	public function getAllLink(){
 		return Db::name('link')->order('order_by')->select();
 	}
-
+	//获取网站配置
+	public function getSys(){
+		return Db::name('sys')->find();
+	}
 
 }

@@ -15,6 +15,8 @@ class BaseController extends Controller
 		$new_art  = $article->getNewArt();
 		$hot_tags = $article->getHotTag();
 		$links    = $article->getAllLink();
+		$sys      = $article->getSys();
+		View::share('sys',$sys);
 		View::share('links',$links);
 		View::share('cats',$cats);
 		View::share('hot_tags',$hot_tags);

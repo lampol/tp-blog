@@ -7,7 +7,8 @@
 	<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a>
 </nav>
 <div class="page-container">
-	<form class="form form-horizontal" id="form-article-add">
+	<form class="form form-horizontal" id="form-article-add" method="post" action="{{:url('/admin/sys/'.$sys.id)}}">
+		<input type="hidden" name="_method" value="put">
 		<div id="tab-system" class="HuiTab">
 			<div class="tabCon">
 				<div class="row cl">
