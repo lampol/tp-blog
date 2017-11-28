@@ -1,7 +1,7 @@
   <link rel="stylesheet" type="text/css" href="__ADMIN__/lib/Validform_v5.3.2/css/style.css">
 <body style="background-color:#fff"> 
   <article class="page-container"> 
-	  <form class="form form-horizontal" id="form-article-add" method="post" action="{{:url('/admin/pic')}}"> 
+	  <form class="form form-horizontal" id="form-article-add" method="post" action="{{:url('/admin/link')}}"> 
     <div class="row cl"> 
      <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>网站名称：</label> 
      <div class="formControls col-xs-8 col-sm-9"> 
@@ -11,14 +11,14 @@
     <div class="row cl">                                                                             
      <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>网站地址：</label>      
      <div class="formControls col-xs-8 col-sm-9">                                                    
-      <input type="text" class="input-text" name="url" datatype="url" errormsg="填写合法的地址" />                                                                                           
+      <input type="text" class="input-text" name="site_url" datatype="url" errormsg="填写合法的地址" />                                                                                           
      </div>                                                                                          
     </div>            
 	
 	<div class="row cl">                                                                             
  <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>排序：</label>
     <div class="formControls col-xs-8 col-sm-9">                                           
-  <input type="text" class="input-text"  name="order_by" /> 
+  <input type="text" class="input-text" datatype="n" errormsg="请填入数字" name="order_by" /> 
 </div>                                                                                             
 </div>                                                                                           
                                                                                                  

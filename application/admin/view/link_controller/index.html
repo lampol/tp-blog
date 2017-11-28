@@ -8,29 +8,24 @@
 				<tr class="text-c">
 					<th width="40"><input name="" type="checkbox" value=""></th>
 					<th width="80">ID</th>
-					<th width="100">图片</th>
-					<th>幻灯片标题</th>
-					<th width="150">跳转地址</th>
-					<th width="60">发布状态</th>
+					<th width="100">网站的名称</th>
+					<th width="300">网站地址</th>
 					<th width="100">操作</th>
 				</tr>
 			</thead>
 			<tbody>
+				{volist name="links" id="vo"}
 				<tr class="text-c">
 					<td><input name="" type="checkbox" value=""></td>
-					<td>1</td>
-					<td> heheh</td>
-					<td class="text-l">asdf</td>
-					<td class="text-c">asdfasdf</td>
-					<td class="td-status">
-			<span class="label label-success radius">已发布</span>
-
-		</td>
+					<td>{{$i}}</td>
+					<td class="text-l">{{$vo.site_name}}</td>
+					<td class="text-c">{{$vo.site_url}}</td>
 					<td class="td-manage">
- <a style="text-decoration:none" class="ml-5"  href="{{:url('/admin/pic/1/edit')}}" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a> 
+ <a style="text-decoration:none" class="ml-5"  href="{{:url('/admin/link/'.$vo.id.'/edit')}}" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a> 
 
-<a style="text-decoration:none" class="ml-5" onClick="delPic(1)" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+<a style="text-decoration:none" class="ml-5" onClick="delPic({{$vo.id}})" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
 				</tr>
+			{/volist}
 			</tbody>
 		</table>
 	</div>
