@@ -4,6 +4,7 @@ namespace app\admin\controller;
 
 use app\admin\controller\BaseController;
 use think\Request;
+use app\admin\model\Sys;
 
 class SystemController extends BaseController
 {
@@ -14,6 +15,9 @@ class SystemController extends BaseController
      */
     public function index()
     {
+	$system = new Sys;
+	$sys = $system->getSys();
+	$this->assign('sys',$sys);
         return $this->fetch();
     }
 
