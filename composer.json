@@ -20,7 +20,7 @@
         "topthink/framework": "~5.0.0",
         "topthink/think-captcha": "1.*",
         "topthink/think-image": "^1.0",
-        "lampol/sphinx": "^1.0"
+        "lampol/sphinx": "^2.0"
     },
     "extra": {
         "think-path": "thinkphp"
