@@ -6,6 +6,7 @@ use think\Controller;
 use think\Request;
 use app\home\controller\BaseController;
 use lampol\SphinxClient;
+use think\Config;
 
 
 class SearchController extends BaseController
@@ -13,16 +14,13 @@ class SearchController extends BaseController
 
 	public function search(Request $request){
 		$sc = new SphinxClient ();
-		$words = $request->param('words');
-		$host = "localhost";
-		$port = 9312;
+		$words = $request->param('words','trim');
+		$port = Config::get('sphinx.SPHINX_PORT');
+		$host = Config::get('sphinx.SPHINX_HOST');
 		$index = "article";
 		$sc->SetServer ( $host, $port );
-
 		//设置连接的超时时间
-
 		$sc->SetConnectTimeout ( 1 );
-
 		//返回数组的数据格式
 		$sc->SetArrayResult ( true );
 		//开始查询
