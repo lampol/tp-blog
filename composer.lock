@@ -4,8 +4,41 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2a35ffb28a34727a5887f9d64a8aabd4",
+    "content-hash": "be951902b23f034856d1770a11a95f43",
     "packages": [
+        {
+            "name": "lampol/sphinx",
+            "version": "v1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lampol/sphinx.git",
+                "reference": "f153966329141babe165bfee5e442b1abc67df16"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/lampol/sphinx/f153966329141babe165bfee5e442b1abc67df16.zip",
+                "reference": "f153966329141babe165bfee5e442b1abc67df16",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "lampol\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "lampol",
+                    "email": "807968192@qq.com"
+                }
+            ],
+            "description": "中文搜索解决方案之sphinx",
+            "time": "2017-11-02T10:03:21+00:00"
+        },
         {
             "name": "topthink/framework",
             "version": "v5.0.12",

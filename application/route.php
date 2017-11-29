@@ -29,3 +29,4 @@ Route::post('admin/upPicImg','admin/UploadController/uploadPic');
 Route::get('/','home/IndexController/index');
 Route::get('list/cid/:cid','home/ArticleController/listArticle');
 Route::get('detail/aid/:aid','home/ArticleController/detailArticle');
+Route::post('search','home/SearchController/search');

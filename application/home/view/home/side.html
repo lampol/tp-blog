@@ -3,8 +3,8 @@
 <!-- 右侧搜索框开始--> 
     <aside id="search-2" class="widget widget_search"> 
      <div id="searchbar"> 
-      <form method="get" id="searchform" action="www.lampol-blog.com/"> 
-       <input type="text" value="" name="s" id="s" placeholder="输入搜索内容" required="" /> 
+	     <form method="post" id="searchform" action="{{:url('/search')}}"> 
+       <input type="text" value="" name="words" id="s" placeholder="输入搜索内容" required="" /> 
        <button type="submit" id="searchsubmit">搜索</button> 
       </form> 
      </div> 
