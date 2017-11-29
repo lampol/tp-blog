@@ -27,10 +27,14 @@ class SearchController extends BaseController
 		$sc->SetArrayResult ( true );
 		//开始查询
 		$res = $sc->Query ( $words, $index );
+		$this->assign('words',$words);
+		if(isset($res['matches'])){
 
-		echo '<pre>';
-		dump($res);
-		echo '</pre>';	
-	
+			$this->assign('res',$res['matches']);
+		}else{
+			$this->assign('res','没有匹配的数据');
+		}
+
+		return $this->fetch('list');	
 	}
 }

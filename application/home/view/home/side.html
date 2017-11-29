@@ -1,11 +1,13 @@
-﻿<!-- 右侧开始--> 
+﻿<link rel="stylesheet" type="text/css" href="__ADMIN__/lib/Validform_v5.3.2/css/style.css">
+<!-- 右侧开始--> 
    <div id="sidebar" class="widget-area"> 
 <!-- 右侧搜索框开始--> 
     <aside id="search-2" class="widget widget_search"> 
      <div id="searchbar"> 
 	     <form method="post" id="searchform" action="{{:url('/search')}}"> 
-       <input type="text" value="" name="words" id="s" placeholder="输入搜索内容" required="" /> 
+       <input type="text" datatype="hz|zm" errormsg="请输入2-10位的汉字或者字母"  name="words" id="s" placeholder="输入2-10汉字或者字母搜索内容"  /> 
        <button type="submit" id="searchsubmit">搜索</button> 
+	<span class="Validform_checktip"> </span>
       </form> 
      </div> 
      <div class="clear"></div> 
@@ -100,4 +102,16 @@
 	<!-- 热门标签结束--> 
    </div> 
    <div class="clear"></div> 
-  </div> 
+  </div>
+<script type="text/javascript" src="__ADMIN__/lib/Validform_v5.3.2/js/Validform_v5.3.2_min.js"></script> 
+<script>
+$("#searchform").Validform({
+	datatype:{
+		"hz":/^[\u4e00-\u9fa5]{2,10}$/,
+		"zm":/^[a-zA-Z]{2,10}$/	
+		},
+	tiptype:3
+
+}); 
+
+</script>

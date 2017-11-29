@@ -1,0 +1,81 @@
+﻿<div class="breadcrumb"> 
+    <a class="crumbs" title="返回首页" href="/">首页</a>
+    <i class="iconfont icon-chevronright"></i>
+    <span>{{$words}}</span>
+   </div> 
+   <div id="content">
+    <div id="primary" class="content-area"> 
+     <div id="page"> 
+      <div class="catepory-title"> 
+       <div class="entry-header">
+	{if(is_array($res))}
+	       <h1>关键词:{{$words}}</h1>
+	{else/}
+		<h1>关键词:{{$words}}{{$res}}</h1>
+	{/if}
+       </div> 
+      </div> 
+      <main id="main" class="site-main" role="main"> 
+
+	{volist name="res" id="vo"}
+       <article id="post-112" class="post-112 post type-post status-publish format-standard hentry category-computer-technology tag-ie tag-56"> 
+        <div class="art-desc"> 
+		<h3 class="art-t"> <a href="{{:url('/detail',['aid'=>encrypt($vo.id)])}}" rel="bookmark" title="{{$vo.attrs.title}}">{{$vo.attrs.title}}</a> </h3> 
+         <div class="more"> 
+          <a href="www.lampol-blog.com/112.html" rel="bookmark"><i class="iconfont icon-import"></i></a> 
+         </div> 
+         <div class="clear"></div> 
+         <div style="min-height:150px;margin:20px"> 
+          <div class="art-img">
+		  <a href="{{:url('/detail',['aid'=>encrypt($vo.id)])}}"><img src="/{{$vo.attrs.img_url}}"  /></a>
+          </div> 
+	  <span class="art-main">{{$vo.attrs.summary}}</span> 
+         </div> 
+         <div class="clear"></div> 
+        </div> 
+        <div class="art_ft"> 
+         <div class="art-pub"> 
+          <div class="views"> 
+		  <i class="iconfont icon-chartbar"></i> {{$vo.attrs.views}}
+          </div> 
+          <div class="cmnt"> 
+           <a href="www.lampol-blog.com/112.html#respond"><i class="iconfont icon-messageprocessing"></i> 评论</a> 
+          </div> 
+         </div> 
+         <div class="art-info"> 
+		 <span class="archive"><i class="iconfont icon-archive" aria-hidden="true"></i>{{$vo.attrs.author}}</span> 
+		 <span class="data"><i class="iconfont icon-calendartext"></i>{{$vo.attrs.created_at|date="Y-m-d",###}}</span> 
+		 <span class="tag"><i class="iconfont icon-tagmultiple"></i> <a href="www.lampol-blog.com/tag/ie" rel="tag">{{$vo.attrs.tag}}</a></span> 
+         </div> 
+        </div> 
+        <div class="clear"></div> 
+       </article> 
+       {/volist}
+
+      </main> 
+     </div> 
+     <nav id="nav-below"> 
+      <div class="nav-next"></div> 
+      <div class="nav-previous">
+       <a href="www.lampol-blog.com/category/share/page/2"></a>
+      </div> 
+     </nav> 
+    </div> 
+    <script>
+
+if($(window).width()>'533'){
+	        $('.pagination .active').addClass('page-numbers').addClass('current');
+		        $('.pagination').css('width','300px');
+			        $('.pagination li').css('float','left');
+}else{
+
+	        $('.pagination li').addClass('page-numbers');
+		        if($('.active').text()=='1'){
+
+				                $('.pagination li').last().addClass('current').css('margin-left','45%');
+						        }else{
+								                $('.pagination li').first().addClass('current').css('margin-left','45%');
+										        }
+			        $('.pagination li a').addClass('screen-reader-text');
+}
+    </script>
