@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e24ae6c89a900e2e8e1f263cdaa0ed5f",
+    "content-hash": "80fc192d55a7f42514d58a8bab0ddcea",
     "packages": [
         {
             "name": "lampol/sphinx",
-            "version": "v2",
+            "version": "v4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/lampol/sphinx.git",
-                "reference": "7be867364d1c9a8201ba5a099c2e22915d79c8b8"
+                "reference": "d95d1519b2228a63cee01c0759b2fad74b862785"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/lampol/sphinx/7be867364d1c9a8201ba5a099c2e22915d79c8b8.zip",
-                "reference": "7be867364d1c9a8201ba5a099c2e22915d79c8b8",
+                "url": "https://files.phpcomposer.com/files/lampol/sphinx/d95d1519b2228a63cee01c0759b2fad74b862785.zip",
+                "reference": "d95d1519b2228a63cee01c0759b2fad74b862785",
                 "shasum": ""
             },
             "type": "library",
@@ -37,7 +37,57 @@
                 }
             ],
             "description": "中文搜索解决方案之sphinx",
-            "time": "2017-11-29T14:33:53+00:00"
+            "time": "2017-11-30T10:58:30+00:00"
+        },
+        {
+            "name": "predis/predis",
+            "version": "v1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nrk/predis.git",
+                "reference": "f0210e38881631afeafb56ab43405a92cafd9fd1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/nrk/predis/f0210e38881631afeafb56ab43405a92cafd9fd1.zip",
+                "reference": "f0210e38881631afeafb56ab43405a92cafd9fd1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8"
+            },
+            "suggest": {
+                "ext-curl": "Allows access to Webdis when paired with phpiredis",
+                "ext-phpiredis": "Allows faster serialization and deserialization of the Redis protocol"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Predis\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniele Alessandri",
+                    "email": "suppakilla@gmail.com",
+                    "homepage": "http://clorophilla.net"
+                }
+            ],
+            "description": "Flexible and feature-complete Redis client for PHP and HHVM",
+            "homepage": "http://github.com/nrk/predis",
+            "keywords": [
+                "nosql",
+                "predis",
+                "redis"
+            ],
+            "time": "2016-06-16T16:22:20+00:00"
         },
         {
             "name": "topthink/framework",
