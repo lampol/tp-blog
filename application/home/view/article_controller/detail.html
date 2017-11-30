@@ -109,6 +109,7 @@
        <div id="respond" class="comment-respond"> 
         <h3 id="reply-title" class="comment-reply-title">给我留言<small><a rel="nofollow" id="cancel-comment-reply-link" href="/93.html#respond" style="display:none;">取消回复</a></small></h3> 
 	<form action="{{:url('/comment')}}" method="post" id="commentform"> 
+		<input type="hidden" name="id" value="{{$article.id}}">
 		{{:token()}}
          <div id="comment-author-info"> 
          </div> 

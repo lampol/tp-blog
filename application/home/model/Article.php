@@ -84,5 +84,10 @@ class Article extends Model
 	public function getSys(){
 		return Db::name('sys')->find();
 	}
+	//评论加1
+	public function addComments($id){
+		$this->where('id',$id)->setInc('comments');	
+	}
+
 
 }

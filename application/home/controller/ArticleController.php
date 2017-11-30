@@ -4,6 +4,8 @@ namespace app\home\controller;
 use app\home\controller\BaseController;
 use app\home\model\Article;
 use think\Request;
+use Predis\Client as Redis;
+use think\Config;
 
 class ArticleController extends BaseController
 {
@@ -43,9 +45,24 @@ class ArticleController extends BaseController
 	public function comment(Request $request){
 		$validate = validate('UserValidate');
 		$check= $request->only(['__token__','captcha']);
-		if(!$validate->check($check)){
-			return $this->error($validate->getError());
+		//if(!$validate->check($check)){
+		//	return $this->error($validate->getError());
+		//}
+		$time =time();
+		$comment = $request->param('comments','','htmlspecialchars,trim');
+		$id=$request->param('id');
+		$config = Config::get('redis');
+		$redis  = new Redis($config);
+		$key    = 'article_'.$id;
+		$value  = $comment.'==|=='.$time;
+		$res = $redis->SADD($key,$value);
+		if(!$res){
+			return $this->error('评论失败');
 		}
+		$art = new Article;
+		$art->addComments($id);
+		return $this->success('评论成功');
+
 	}
 
 }
