@@ -40,4 +40,12 @@ class ArticleController extends BaseController
 		return $this->fetch('detail');
 	}
 
+	public function comment(Request $request){
+		$validate = validate('UserValidate');
+		$check= $request->only(['__token__','captcha']);
+		if(!$validate->check($check)){
+			return $this->error($validate->getError());
+		}
+	}
+
 }
