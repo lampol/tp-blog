@@ -40,46 +40,18 @@
      <h3 class="widget-title"><i class="iconfont icon-viewgrid"></i>最多评论</h3> 
      <div class="img_cat"> 
       <ul> 
+	     {volist name="commentArt" id="vo"}
        <div class="img-box"> 
         <div class="img-x2"> 
          <figure class="insets"> 
-          <a href="www.lampol-blog.com/27.html"><img src="__HOME__/images/demo.jpg" alt="MYDREAM主题 最新更新版本V1.8 2017-8-23更新" /></a> 
+		<a href="{{:url('/detail/'.encrypt($vo.id))}}"><img style="width:160px;height:100px" src="/{{$vo.img_url}}" /></a> 
           <div class="img-title"> 
-           <a href="www.lampol-blog.com/27.html" rel="bookmark">MYDREAM主题 最新更新版本V1.8 2017-8-23更新</a> 
+		  <a href="{{:url('/detail/'.encrypt($vo.id))}}" rel="bookmark">{{$vo.title}}</a> 
           </div> 
          </figure> 
         </div> 
        </div> 
-       <div class="img-box"> 
-        <div class="img-x2"> 
-         <figure class="insets"> 
-          <a href="www.lampol-blog.com/100.html"><img src="__HOME__/images/demo.jpg" alt="Wordpress插件之CKPlayer" /></a> 
-          <div class="img-title"> 
-           <a href="www.lampol-blog.com/100.html" rel="bookmark">WordPress插件之CKPlayer</a> 
-          </div> 
-         </figure> 
-        </div> 
-       </div> 
-       <div class="img-box"> 
-        <div class="img-x2"> 
-         <figure class="insets"> 
-          <a href="www.lampol-blog.com/167.html"><img src="__HOME__/images/demo.jpg" alt="运用autoit写的系统补丁检测" /></a> 
-          <div class="img-title"> 
-           <a href="www.lampol-blog.com/167.html" rel="bookmark">运用autoit写的系统补丁检测</a> 
-          </div> 
-         </figure> 
-        </div> 
-       </div> 
-       <div class="img-box"> 
-        <div class="img-x2"> 
-         <figure class="insets"> 
-          <a href="www.lampol-blog.com/185.html"><img src="__HOME__/images/demo.jpg" alt="MyDream主题使用教程" /></a> 
-          <div class="img-title"> 
-           <a href="www.lampol-blog.com/185.html" rel="bookmark">MyDream主题使用教程</a> 
-          </div> 
-         </figure> 
-        </div> 
-       </div> 
+       {/volist}
        <div class="clear"></div> 
       </ul> 
      </div> 

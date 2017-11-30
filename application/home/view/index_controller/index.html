@@ -47,7 +47,7 @@
      <div class="art-desc"> 
 	     <h3 class="art-t"> <a href="{{:url('/detail',['aid'=>encrypt($vo.id)])}}" rel="bookmark" title="{{$vo.title}}">{{$vo.title}}</a> </h3> 
       <div class="more"> 
-       <a href="www.lampol-blog.com/167.html" rel="bookmark"><i class="iconfont icon-import"></i></a> 
+       <a href="javascript:;" rel="bookmark"><i class="iconfont icon-import"></i></a> 
       </div> 
       <div class="clear"></div> 
       <div style="min-height:150px;margin:20px"> 
@@ -64,13 +64,13 @@
 	       <i class="iconfont icon-chartbar"></i> {{$vo.views}} 
        </div> 
        <div class="cmnt"> 
-        <a href="www.lampol-blog.com/167.html#comments"><i class="iconfont icon-messageprocessing"></i> 5</a> 
+	       <a href="javascript:;"><i class="iconfont icon-messageprocessing"></i>{{$vo.comments}}</a> 
        </div> 
       </div> 
       <div class="art-info"> 
 	      <span class="archive"><i class="iconfont icon-archive" aria-hidden="true"></i> {{$vo.author}}</span> 
 	      <span class="data"><i class="iconfont icon-calendartext"></i> {{$vo.created_at|date='Y-m-d H:i:s',###}}</span> 
-	      <span class="tag"><i class="iconfont icon-tagmultiple"></i> <a href="www.lampol-blog.com/tag/ie11" rel="tag">{{$vo.tag}}</a></span> 
+	      <span class="tag"><i class="iconfont icon-tagmultiple"></i> <a href="javascript:;" rel="tag">{{$vo.tag}}</a></span> 
       </div> 
      </div> 
      <div class="clear"></div> 

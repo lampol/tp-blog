@@ -34,6 +34,16 @@ class ArticleController extends BaseController
 		$preArticle  = $art->getPreArticle($id);
 		$nextArticle  = $art->getNextArticle($id);
 		$art->addViews($id);
+		$config = Config::get('redis');
+		$redis  = new Redis($config);
+	      	$key = "article_".$id;	
+		$comment = $redis->SMEMBERS($key);
+		if($comment!=null){
+			$comments = $this->doComments($comment);
+		}else{
+			$comments="此文章没有人评论";
+		}
+		$this->assign('comments',$comments);
 		$this->assign('article',$article);
 		$this->assign('preArticle',$preArticle);
 		$this->assign('domain',$domain);
@@ -45,9 +55,9 @@ class ArticleController extends BaseController
 	public function comment(Request $request){
 		$validate = validate('UserValidate');
 		$check= $request->only(['__token__','captcha']);
-		//if(!$validate->check($check)){
-		//	return $this->error($validate->getError());
-		//}
+		if(!$validate->check($check)){
+			return $this->error($validate->getError());
+		}
 		$time =time();
 		$comment = $request->param('comments','','htmlspecialchars,trim');
 		$id=$request->param('id');
@@ -63,6 +73,14 @@ class ArticleController extends BaseController
 		$art->addComments($id);
 		return $this->success('评论成功');
 
+	}
+	public function doComments($data){
+		foreach($data as $v){
+			list($contents,$time) = explode('==|==',$v);
+			$newCom[$time]=$contents;
+		}
+		krsort($newCom);
+		return $newCom;
 	}
 
 }

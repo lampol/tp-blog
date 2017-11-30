@@ -8,7 +8,7 @@ class Article extends Model
 {
 	//获取首页的文章
 	public function getAllArticle(){
-		$data = $this->field(['id','title','author','img_url','summary','tag','created_at','views'])->paginate(3);
+		$data = $this->field(['id','title','author','img_url','summary','tag','created_at','views','comments'])->paginate(3);
 		return $data;
 	
 	}
@@ -24,7 +24,7 @@ class Article extends Model
 	//获取分类文章
 	public function getCatArticle($cat_id){
 	
-		return $this->where('cat_id',$cat_id)->field(['id','title','author','img_url','summary','tag','created_at','views'])->paginate(2);
+		return $this->where('cat_id',$cat_id)->field(['id','title','author','img_url','summary','tag','created_at','views','comments'])->paginate(2);
 	}
 	//获取文章分类名称
 	public function getCatName($cat_id){
@@ -87,6 +87,10 @@ class Article extends Model
 	//评论加1
 	public function addComments($id){
 		$this->where('id',$id)->setInc('comments');	
+	}
+	//获取最多评论的文章
+	public function getCommentArt(){
+		return $this->field(['id','title','img_url'])->order('comments desc')->limit(4)->select()->toArray();
 	}
 
 

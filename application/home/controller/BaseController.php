@@ -16,6 +16,8 @@ class BaseController extends Controller
 		$hot_tags = $article->getHotTag();
 		$links    = $article->getAllLink();
 		$sys      = $article->getSys();
+		$commentArt= $article->getCommentArt();
+		View::share('commentArt',$commentArt);
 		View::share('sys',$sys);
 		View::share('links',$links);
 		View::share('cats',$cats);

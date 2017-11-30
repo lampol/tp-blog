@@ -10,7 +10,7 @@
         <div class="single-meta"> 
 		<span><i class="iconfont icon-calendartext"></i>&nbsp;{{$article.created_at|date='Y-m-d H:i:s',###}}</span> 
 		<span><i class="iconfont icon-chartbar"></i>&nbsp;{{$article.views}}</span> 
-         <span><a href="www.lampol-blog.com/93.html#comments"><i class="iconfont icon-messageprocessing"></i> 2</a></span> 
+		<span><a href="www.lampol-blog.com/93.html#comments"><i class="iconfont icon-messageprocessing"></i>{{$article.comments}}</a></span> 
         </div> 
         <div class="clear"></div> 
 	<h1 class="entry-title">{{$article.title}}</h1> 
@@ -88,23 +88,31 @@
        <div class="clear"></div> 
       </nav> 
       <!-- 文章评论 --> 
-      <!-- 引用 --> 
+      <!-- 引用 -->
+
       <div id="comments" class="comments-area"> 
-       <h2 class="comments-title"> 2 条留言&nbsp;&nbsp;访客：1 条&nbsp;&nbsp;博主：1 条 </h2> 
+	  {if(is_array($comments))}
+	  <h2 class="comments-title"> {{$article.comments}} 条留言 </h2> 
        <ol class="comment-list"> 
+	{volist name="comments" id="vo"}	
         <li class="comment even thread-even depth-1 parent" id="comment-34"> 
          <div id="div-comment-34" class="comment-body"> 
           <div class="comment-author vcard"> 
            <img alt="" src="__HOME__/images/tx-3.jpg" class="avatar avatar-48" width="48" height="48" /> 
            <!--<cite class="fn">卡珊德拉</cite> <span class="says">:</span>--> 
            <strong> 匿名用户 </strong> 
-           <span class="comment-meta commentmetadata"> <a href="www.lampol-blog.com/93.html#comment-34"></a><br /> <span class="comment-aux">  2017年08月03日 下午4:50 <span class="floor"> &nbsp;沙发 </span> </span> </span> 
+	   <span class="comment-meta commentmetadata"> <br /> <span class="comment-aux">{{$key|date="Y-m-d H:i:s",###}} <span class="floor"> &nbsp;沙发 </span> </span> </span> 
           </div> 
-          <p>不知博主有没有听过它乱发证书的事情。。。某大数字安全公司旗下的 沃通 收购了 StartCom chrome 火狐都除名了 据说Let’s Encrypt 挺好的 有很多大佬站台</p> 
+	  <p>{{$vo}}</p> 
          </div> 
  </li>
+ {/volist}
 
        </ol>
+       {else/}
+       <h2 class="comments-title"> {{$article.comments}} 条留言{{$comments}} </h2>
+
+       {/if}
 
        <div id="respond" class="comment-respond"> 
         <h3 id="reply-title" class="comment-reply-title">给我留言<small><a rel="nofollow" id="cancel-comment-reply-link" href="/93.html#respond" style="display:none;">取消回复</a></small></h3> 
