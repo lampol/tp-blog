@@ -24,7 +24,7 @@ class Article extends Model
 	//获取所有文章
 	public function getAllArticle($list){
 	
-		$data = $this->alias('a')->field('a.id,a.title,a.views,a.created_at,c.cat_name')->join('cat c','a.cat_id=c.id')->paginate($list);
+		$data = $this->alias('a')->field('a.id,a.title,a.views,a.created_at,c.cat_name')->join('cat c','a.cat_id=c.id')->order('a.created_at desc')->paginate($list);
 		return $data;
 
 	}

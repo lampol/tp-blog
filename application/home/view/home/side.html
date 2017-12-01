@@ -30,7 +30,7 @@
      <h3 class="widget-title"><i class="iconfont icon-viewgrid"></i>近期文章</h3> 
      <ul> 
 	     {volist name="new_art" id="vo"}
-	     <li> <a href="{{:url('/detail',['aid'=>encrypt($vo.id)])}}">{{$vo.title}}</a> </li> 
+	     <li> <a href="{{:url('/detail/aid/',['aid'=>encrypt($vo.id)])}}">{{$vo.title}}</a> </li> 
       {/volist}
      </ul> 
      <div class="clear"></div> 
@@ -44,7 +44,7 @@
        <div class="img-box"> 
         <div class="img-x2"> 
          <figure class="insets"> 
-		<a href="{{:url('/detail/'.encrypt($vo.id))}}"><img style="width:160px;height:100px" src="/{{$vo.img_url}}" /></a> 
+		<a href="{{:url('/detail/aid/'.encrypt($vo.id))}}"><img style="width:160px;height:100px" src="/{{$vo.img_url}}" /></a> 
           <div class="img-title"> 
 		  <a href="{{:url('/detail/'.encrypt($vo.id))}}" rel="bookmark">{{$vo.title}}</a> 
           </div> 

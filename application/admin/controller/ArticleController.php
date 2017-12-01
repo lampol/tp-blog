@@ -18,7 +18,7 @@ class ArticleController extends BaseController
     {
 	    $article = new Article;
 	    $totalCount = $article->totalCount();
-	    $articles = $article->getAllArticle(3);
+	    $articles = $article->getAllArticle(10);
 	    $this->assign('articles',$articles);
 	    $this->assign('totalCount',$totalCount);
         return $this->fetch();

@@ -31,3 +31,7 @@ Route::get('list/cid/:cid','home/ArticleController/listArticle');
 Route::get('detail/aid/:aid','home/ArticleController/detailArticle');
 Route::post('search','home/SearchController/search');
 Route::post('comment','home/ArticleController/comment');
+
+Route::miss('/');
+
+

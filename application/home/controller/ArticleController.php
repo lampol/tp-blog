@@ -12,7 +12,9 @@ class ArticleController extends BaseController
 
 	public function listArticle($cid){
 		$cat_id = decrypt($cid);
-
+		if($cat_id==''){
+			return $this->error('没有此分类','/');		
+		}
 		$article = new Article;
 
 		$articles = $article->getCatArticle($cat_id);
@@ -28,6 +30,9 @@ class ArticleController extends BaseController
 	public function detailArticle($aid){
 		$domain = Request::instance()->domain();
 		$id = decrypt($aid);
+		if($id==''){
+			return $this->error('没有此文章','/');	
+		}
 		$art = new Article;
 		$article = $art->getOneArticle($id);
 		$randArticle = $art->getRandArticle($id);
